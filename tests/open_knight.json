@@ -1,0 +1,31 @@
+{
+    "gameDate": "",
+   "playingWhite": "",
+    "playingBlack": "",
+    "summary": "Knight moves on open board",
+    "startingPosition": "8/8/8/4n3/8/8/8/8 b - - 0 0",
+    "endingPosition": "",
+    "whoIsPlaying": "b",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "moves": [
+      { "WorB":"b", "notation":"Nf7", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ne5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Nd7", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ne5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Nc6", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ne5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Nc4", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ne5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Nd3", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ne5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Nf3", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ne5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ng4", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ne5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ng6", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ne5", "delay":0.5 } 
+    ]
+}

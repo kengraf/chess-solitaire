@@ -1,0 +1,75 @@
+:root {
+ --board-size: min(100vw-200, 100vh);
+  --square-size: calc(var(--board-size) / 8);
+  --sidebar-min-width: 200;
+}
+
+.blueish {
+  background-color: #7A9DB2; // lighter #D9E4E8
+}
+
+.yellowish {
+  background-color: rgb(255,255,166);
+}
+
+.redish {
+  background-color: rgb(255,240,240);
+}
+
+.board-container {
+  width: var(--board-size);
+  height: var(--board-size);
+  display: absolute;
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;      
+}
+
+
+.board,.board-image {
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  align-items: center;   
+  text-align: center;   
+  z-index: -1;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rank8 {  top: calc(0 * var(--square-size)); }
+.rank7 {  top: calc(1 * var(--square-size)); }
+.rank6 {  top: calc(2 * var(--square-size)); }
+.rank5 {  top: calc(3 * var(--square-size)); }
+.rank4 {  top: calc(4 * var(--square-size)); }
+.rank3 {  top: calc(5 * var(--square-size)); }
+.rank2 {  top: calc(6 * var(--square-size)); }
+.rank1 {  top: calc(7 * var(--square-size)); }
+
+.file-a {  left: calc(0 * var(--square-size)); }
+.file-b {  left: calc(1 * var(--square-size)); }
+.file-c {  left: calc(2 * var(--square-size)); }
+.file-d {  left: calc(3 * var(--square-size)); }
+.file-e {  left: calc(4 * var(--square-size)); }
+.file-f {  left: calc(5 * var(--square-size)); }
+.file-g {  left: calc(6 * var(--square-size)); }
+.file-h {  left: calc(7 * var(--square-size)); }
+
+.square {
+  position: absolute;
+  width: var(--square-size);
+  height: var(--square-size);
+}
+
+.piece {
+  top: 0;
+  left: 0;
+  width: var(--square-size);
+  height: var(--square-size);
+  z-index: 4;
+}

@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-US"  lang="en-US" >
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="chess.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+ <!-- todo when we get to animation -->
+  <style>
+:root {
+  --theme-light-color: #D9E4E8;
+  --theme-dark-color: #7498AE;
+  --font-family-body: "Montserrat", "Arial", sans-serif;
+}
+
+.todo_color-classic {  
+  --dark-color: #C5AB8A;
+  --light-color: #74543B;
+}
+
+.montserrat-font {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html, body, h1, h2, h3, p {
+  font-family: var(--font-family-body);
+  color: var(--theme-light-color);
+}
+  html, body, p {
+    margin: 0px;
+    font-family: "Montserrat", "Arial", sans-serif;
+  }
+    
+    .transitionImage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--square-size);
+      height: var(--square-size);
+   }
+    
+    .transitionFrame {
+      position: absolute;
+      width: var(--board-size);
+      height: var(--board-size);
+    }
+    
+    .checkSquare {
+      position: absolute;
+      width: var(--square-size);
+      height: var(--square-size);
+      background-color: red;
+      opacity: 0.5;
+      visibility: hidden;
+    }
+    
+
+  .rounded-textbox {
+    width: 100$;             // Width of the text box */
+    padding: 8px;            /* Inner spacing for the text */
+    border: 1px solid #fcc;   /* Border with light gray color */
+    background-color:  var(--theme-dark-color);
+      border-radius: 5px;
+    font-size: 16px;          /* Font size for the text */
+    outline: none;            /* Remove the default focus outline */
+  }
+
+  /* Add focus effect for better UX */
+  .rounded-textbox:focus {
+    border-color: #3498db;    /* Change border color on focus */
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5); /* Highlight effect */
+  }
+  
+.window-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: row;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: var(--theme-light-color);
+  padding: 0px;
+  margin-left: 8px;
+  height: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin-left: 0px;
+  height: 100%;
+}
+
+.sidebar-top {
+  flex: 1;
+  overflow: auto;  
+  padding: 10px;
+}
+.sidebar-text {
+  height: 100%;
+  overflow: auto;  
+}
+
+.sidebar-bottom {
+  height: 40px; /* Fixed height */
+  justify-content: center;
+  padding: 4px;
+}
+
+  .sidebar-button-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+  }
+   
+    .sidebar-button {
+      flex: 1;
+      padding: 2px;
+      cursor: pointer;
+      background-color: var(--theme-dark-color);
+      max-width: 40px;
+      height: 100%;
+      justify-content: center;
+      border-radius: 8px;
+    }
+    .sidebar-button p {
+      margin: 0px;
+      font-weight: 600;
+      color: var(--theme-light-color);
+    }
+    
+    .sidebar-button .double {
+      transform: translateY(-20px);
+      font-size: 36pt;
+    }
+    
+    .sidebar-button .arrow {
+       transform: translateY(-6px);
+     font-size: 24pt;
+    }
+    
+    .sidebar-button button:hover {
+      background-color: #007BFF;
+      color: white;
+    }
+
+
+  </style>
+
+
+</head>    
+
+<body>
+<div class="window-container">
+  <div class="board-container">
+    <div id="board" class="board">
+      <img id="board-image" class="board-image" src="/images/classic/200.png" alt="board">
+      <img id="transitionImage" class="transitionImage" src="/images/classic/wb.png" style="visibility:hidden">
+      <!-- JS generated pieces: defineSquares() and setupGame(FEN) -->
+    </div>
+ </div>
+
+  <div id="sidebar" class="sidebar">
+    <div id="sidebar-container" class="sidebar-container">
+      <div id="sidebar-top" class="sidebar-top">
+        <div id="sidebar-text" class="sidebar-text"></div>
+      </div>
+      <div id="sidebar-bottom" class="sidebar-bottom">
+        <div class="sidebar-button-container">
+          <button id="backwardBtn" class="sidebar-button"><p class="double">&laquo;</p></button>
+          <button id="backwardBtn" class="sidebar-button"><p class="arrow">&#9668;</p></button>
+          <button id="forwardBtn" class="sidebar-button"><p  class="arrow">&#9658;</p></button>
+          <button id="forwardBtn" class="sidebar-button"><p class="double">&raquo;</p></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src="chess.js"></script>
+
+<script>
+
+// Fetch data from the JSON URL
+async function fetchGame(url) {
+    try {
+        const response = await fetch(url);
+        
+        // Check if the request was successful
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        // Parse the JSON from the response
+        game = await response.json();
+        console.log("fen="+game.startingPosition);
+        setupGame(game.startingPosition);
+        await runGame();
+        
+        if( game.currentPosition == game.endingPosition )
+            console.log("%cSuccess -" +`${game.summary}`, "color: green;" );
+        else
+            console.log("%c`Failed -" + `${game.summary} - ${game.currentPosition}`, "color: red;" );
+        console.log(`${game.endingPosition}`);
+       
+    } catch (error) {
+        console.error('Error fetching JSON:', error);
+    }
+}
+
+// Fetch data from the JSON URL
+async function readTestset(url) {
+    try {
+        const response = await fetch(url);
+        
+        // Check if the request was successful
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        // Parse the JSON from the response to load the global _testSet{}
+        _testSet = await response.json();
+        console.log("testSet read:"+url);
+    } catch (error) {
+        console.error('Error fetching JSON:', error);
+    }
+    
+    return;
+}
+
+async function processData(url) {
+    const data = await fetchGame(url); // Waits for fetchData to finish
+}
+
+function getCurrentFEN() {
+  let fen = "";
+  let spaces = 0;
+  const boardFiles="abcdefgh";
+  
+  for (let rank = 7; rank >= 0; rank--) {
+    for (let file = 0; file < boardFiles.length; file++) {
+      parent = document.getElementById(index2alpha(file,rank));
+      const child = parent.children[0];
+
+      if( child != null ) {
+        if( spaces != 0 ) {
+          fen += `${spaces}`;
+          spaces = 0;
+        }
+        const dataGroup = child.getAttribute('data-group');
+        pieceColor = dataGroup[0];
+        pieceType = dataGroup[1];
+        if( pieceColor == "w" ) pieceType = pieceType.toUpperCase();
+        fen += pieceType;
+      } else {
+        spaces += 1;
+      }
+    }
+    if( spaces != 0 ) {
+      fen += `${spaces}`;
+      spaces = 0;
+    }
+    if( rank > 0 ) fen += "/"
+  }
+  game.currentPosition = fen
+  return;
+}
+
+function addToSidebar( text, type = 'p' )
+{
+  let sidebar = document.getElementById( "sidebar-text" );
+  const child = document.createElement('div');
+  const childSub = document.createElement(type);
+  childSub.innerHTML= text;
+  
+    // Add classes and content to the child div
+    child.className = 'rounded-textbox';
+    child.id = 'rounded-textbox';
+
+    // Append the child div to the parent
+    child.appendChild(childSub);
+    sidebar.appendChild(child);
+    sidebar.scrollTop = sidebar.scrollHeight;   
+}
+
+
+async function runGame() {
+    for (const halfMove of game.moves) {
+        move = halfMove;
+        move.startSquare = {};
+        move.endSquare = {};
+         if (halfMove.notation.includes("0-0")) {
+          moveCastle(halfMove.notation);
+        } else {
+          parseMove(halfMove.notation);
+          identifyPiece();
+          transitionPiece();
+        }
+        addToSidebar(move.notation);
+//        if(move.delay == 0) 
+            await sleep( move.delay * 1000 );
+    }
+    return getCurrentFEN();
+};
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Globals
+let gameMode = "solitaire"  // "test"
+let gameTheme = "modern";   // "classic"
+let loadUrl = "chessLife/cf-jan-2022.json";  // expected to be relative URLs
+let _testSet = {};  // When testing json, array of urls
+
+function defineParameters() {
+  const queryString = window.location.search; // e.g., "?param1=value1&param2=value2"
+  const urlParams = new URLSearchParams(queryString);
+  
+  if( urlParams.has('mode') )  gameMode = urlParams.get('mode' );
+  if( urlParams.has('theme') ) gameTheme = urlParams.get('theme' );
+  const imgElement = document.getElementById('board-image');
+  imgElement.src = `/images/${gameTheme}/200.png`;
+ 
+  if( urlParams.has('game') )  loadUrl = urlParams.get('game' );
+  console.log(`Mode:${gameMode} Style:${gameTheme} URL:${loadUrl}`);
+}
+
+
+// Code to run the game -------------------
+async function main() {
+  defineParameters();
+  defineSquares();
+
+  if( gameMode == "test" ) {
+    await readTestset( loadUrl );
+    for (const test in _testSet.testSet) { 
+      await processData(_testSet.testSet[test].url);
+    }
+  } else {
+    // old style
+    await processData(loadUrl);
+  }
+}
+
+main();
+
+document.getElementById('backwardBtn').addEventListener('click', () => {
+  alert('Backward button clicked!');
+  // todo add backward functionality here
+  history.back(); // Go to the previous page
+});
+
+document.getElementById('forwardBtn').addEventListener('click', () => {
+  alert('Forward button clicked!');
+  // todo add forward functionality here
+  history.forward(); // Go to the next page
+});
+
+</script>
+
+</html>
+

@@ -1,0 +1,32 @@
+{
+    "gameDate": "",
+   "playingWhite": "",
+    "playingBlack": "",
+    "summary": "Check an moves on open board",
+    "startingPosition": "8/8/8/8/8/8/8/4Q2k b KQkq - 0 0",
+    "endingPosition": "k4Q2/8/8/8/8/8/8/8",
+    "whoIsPlaying": "b",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "moves": [
+      { "WorB":"w", "notation":"Qe1+", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kg2", "delay":1.0 },
+      { "WorB":"w", "notation":"Qd2#", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kf3", "delay":1.0 },
+      { "WorB":"w", "notation":"Qc3+", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Ke4", "delay":1.0 },
+      { "WorB":"w", "notation":"Qb4#", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kd5", "delay":1.0 }, 
+
+      { "WorB":"w", "notation":"Qa5+", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kc6", "delay":1.0 },
+      { "WorB":"w", "notation":"Qc3#", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kb7", "delay":1.0 },
+      { "WorB":"w", "notation":"Qg7+", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Ka8", "delay":1.0 },
+      { "WorB":"w", "notation":"Qg8#", "delay":1.0 }
+
+    ]
+}

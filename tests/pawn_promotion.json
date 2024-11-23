@@ -1,0 +1,26 @@
+
+{
+    "gameDate": "",
+    "playingWhite": "",
+    "playingBlack": "",
+    "summary": "pawn_promotion",
+    "startingPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w kqKQ - 0 0",
+    "endingPosition": "rnP1kbnr/1p2pppp/p7/8/8/8/PPPP1PPP/RNBQKBNR",
+    "whoIsPlaying": "w",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "moves": [
+        { "WorB":"w", "notation":"e4", "delay":0.5 },
+        { "WorB":"b", "notation":"d5", "delay":0.5 },
+        { "WorB":"w", "notation":"exd5", "delay":0.5 },
+        { "WorB":"b", "notation":"c5", "delay":0.5 },
+        { "WorB":"w", "notation":"dxc6", "delay":0.5 },
+        { "WorB":"b", "notation":"Qd7", "delay":0.5 },
+        { "WorB":"w", "notation":"cxd7+", "delay":0.5 },
+        { "WorB":"b", "notation":"a6", "delay":0.5 },
+        { "WorB":"w", "notation":"fdxc8Q#", "delay":0.5 }
+    ]
+}
+

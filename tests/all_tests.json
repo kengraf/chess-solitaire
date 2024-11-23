@@ -1,0 +1,12 @@
+{
+    "testSet": [
+        { "url": "/tests/open_king.json"},
+        { "url": "/tests/open_queen.json"},
+        { "url": "/tests/open_bishop.json"},
+        { "url": "/tests/open_knight.json"},
+        { "url": "/tests/open_rook.json"},
+        { "url": "/tests/pawn_promotion.json"},
+        { "url": "/tests/open_checks.json"}
+    ]
+}
+        

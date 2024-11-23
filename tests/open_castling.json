@@ -1,0 +1,32 @@
+{
+    "gameDate": "",
+   "playingWhite": "",
+    "playingBlack": "",
+    "summary": "Castling moves on open board",
+    "startingPosition": "r3k2r/8/8/8/8/8/8/R3K2R b KQkq - 0 0",
+    "endingPosition": "r3k2r/8/8/8/8/8/8/R3K2R",
+    "whoIsPlaying": "b",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "moves": [
+      { "WorB":"w", "notation":"0-0", "delay":1.0 }, 
+      { "WorB":"b", "notation":"0-0", "delay":1.0 }, 
+      { "WorB":"w", "notation":"Kf2", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kf7", "delay":1.0 }, 
+      { "WorB":"w", "notation":"Rh1", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Rh8", "delay":1.0 }, 
+      { "WorB":"w", "notation":"Ke1", "delay":1.0 },
+      { "WorB":"b", "notation":"Ke8", "delay":1.0 }, 
+      
+      { "WorB":"w", "notation":"0-0-0", "delay":1.0 }, 
+      { "WorB":"b", "notation":"0-0-0", "delay":1.0 }, 
+      { "WorB":"w", "notation":"Kd2", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kd7", "delay":1.0 }, 
+      { "WorB":"w", "notation":"Ra1", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Ra8", "delay":1.0 }, 
+      { "WorB":"w", "notation":"Ke1", "delay":1.0 },
+      { "WorB":"b", "notation":"Ke8", "delay":1.0 }
+    ]
+}

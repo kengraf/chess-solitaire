@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-US"  lang="en-US" >
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="chess.css">
+</head>    
+
+<body> 
+  <div class="board-container">
+    <div id="board" class="board">
+      <img class="board-image" src="/images/modern/200.png" alt="board">
+      <!-- JS generated pieces: defineSquares() and setupGame(FEN) -->
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript" src="chess.js"></script>
+<script>
+defineSquares();
+setupGame();
+loadGameNotation();
+
+const queryString = window.location.search; // e.g., "?param1=value1&param2=value2"
+const urlParams = new URLSearchParams(queryString);
+
+const param1 = urlParams.get('param1'); // "value1"
+const param2 = urlParams.get('param2'); // "value2"
+console.log(param1, param2);
+// more games: https://www.chessgames.com/perl/chesscollection?cid=1019821
+// g-of-cent: https://www.youtube.com/watch?v=wsaD8GLw0qw
+
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+// JSON Object for game
+var game = {
+    gameDate: "",
+  playingWhite: "",
+  playingBlack: "",
+  summary: "",
+  moves: [], // array of halfmove objects
+  startingPosition: "", // first part of FEN
+  endingPosition: "", // FEN calculated
+  whoIsPlaying:"w", // or maybe "b";
+  castling: "KQkq", // uppercase for white; "-" when no rights for anyone
+  enPassant: "-", // notation of open square if available, "-" if not 
+  halfMoves: 0,  // number of moves since last capture or pawn move
+  fullMoves: 0,  // increment after black plays
+}
+
+// Current half move
+var move = {
+    WorB: "w",
+  notation: "", // i.e. R1xf1+
+  delay: 0,  // if (-1) wait; else number of seconds
+  par: 0, // scored value
+  comment: "",
+  altMove: {}, // move, optional
+  startSquare: {}, // location before moving {alpha:'a5',file:0,rank:4}
+  endSquare: {}, // 
+                                      pieceType: "", // one of "prbnqk"
+  disambiguate: "",  // Only used when 2 pieces can move to the end square
+  promotionPiece: "", // one of "rbnq"
+  checkResult: false,
+  mateResult: false,
+  enPassant: "=",
+}

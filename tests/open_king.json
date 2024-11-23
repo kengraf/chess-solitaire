@@ -1,0 +1,47 @@
+{
+   "gameDate": "",
+    "playingWhite": "",
+    "playingBlack": "",
+    "summary": "King moves on open board",
+    "startingPosition": "8/8/8/8/8/8/8/k7 b - - 0 0",
+    "endingPosition": "",
+    "whoIsPlaying": "b",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "moves": [
+      { "WorB":"b", "notation":"Ka2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kb3", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kb4", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ka5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ka6", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kb7", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ka8", "delay":0.5 },
+      
+      { "WorB":"b", "notation":"Ka7", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kb6", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kb5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ka4", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ka3", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kb2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ka1", "delay":0.5 }, 
+      
+      { "WorB":"b", "notation":"Kb1", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kc2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kd2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ke1", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kf1", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kg2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kh1", "delay":0.5 }, 
+      
+      { "WorB":"b", "notation":"Kg2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kf1", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ke1", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kd2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kc2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Kb1", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ka1", "delay":0.5 } 
+      
+    ]
+}

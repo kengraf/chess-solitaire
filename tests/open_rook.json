@@ -1,0 +1,31 @@
+{
+    "gameDate": "",
+    "playingWhite": "",
+    "playingBlack": "",
+   "summary": "Rook moves on open board",
+    "startingPosition": "8/8/8/4r3/8/8/8/8 b - - 0 0",
+    "endingPosition": "8/8/8/4r3/8/8/8/8",
+    "whoIsPlaying": "b",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "moves": [
+      { "WorB":"b", "notation":"Re6", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Rd5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re4", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Rf5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re8", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ra5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re1", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Rh5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Re5", "delay":0.5 } 
+    ]
+}

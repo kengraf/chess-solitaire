@@ -1,0 +1,31 @@
+{
+    "gameDate": "",
+    "playingWhite": "",
+   "playingBlack": "",
+    "summary": "Bishop moves on open board",
+    "startingPosition": "8/8/8/4b3/8/8/8/8 b - - 0 0",
+    "endingPosition": "8/8/8/4b3/8/8/8/8",
+    "whoIsPlaying": "b",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "moves": [
+      { "WorB":"b", "notation":"Bf6", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Be5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Bd6", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Be5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Bd4", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Be5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Bf4", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Be5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Bh8", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Be5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Bb8", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Be5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Ba1", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Be5", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Bh2", "delay":0.5 }, 
+      { "WorB":"b", "notation":"Be5", "delay":0.5 } 
+    ]
+}
