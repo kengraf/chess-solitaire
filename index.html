@@ -5,32 +5,102 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="chess.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>    
 
-<body> 
+<body>
+<div class="window-container">
   <div class="board-container">
     <div id="board" class="board">
-      <img class="board-image" src="/images/modern/200.png" alt="board">
-      <!-- JS generated pieces: defineSquares() and setupGame(FEN) -->
+      <img id="board-image" class="board-image" src="/images/classic/board.png" alt="board">
+<!-- JS generated pieces: defineBoard() and setupGame(FEN) -->
+    </div>
+ </div>
+
+<!-- TODO should sidebar be auto generated in script? -->
+  <div id="sidebar" class="sidebar">
+    <div id="sidebar-container" class="sidebar-container">
+      <div id="sidebar-top" class="sidebar-top"></div>
+      <div id="sidebar-bottom" class="sidebar-bottom">
+        <div class="sidebar-button-container">
+          <button id="jumpBackBtn" class="sidebar-button" title="Go back a set of moves"><p class="double">&laquo;</p></button>
+          <button id="halfBackBtn" class="sidebar-button" title="Go back a halfmove"><p class="arrow">&#9668;</p></button>
+          <button id="halfForwardBtn" class="sidebar-button" title="Play next halfmove"><p  class="arrow">&#9658;</p></button>
+          <button id="jumpForwardBtn" class="sidebar-button" title="Play next set of moves"><p class="double">&raquo;</p></button>
+        </div>
+      </div>
     </div>
   </div>
+</div>
 </body>
 
 <script type="text/javascript" src="chess.js"></script>
 <script>
-defineSquares();
-setupGame();
-loadGameNotation();
 
-const queryString = window.location.search; // e.g., "?param1=value1&param2=value2"
-const urlParams = new URLSearchParams(queryString);
+// Globals
+const _gameOptions = { "mode": ["solitaire", "test"],
+                  "theme": ["classic", "modern" ],
+                  "url": ["/games/cf-jan-2022.json"]};
+let _gameMode = _gameOptions.mode[0];
+let _gameTheme = _gameOptions.theme[0];
+let _loadURL = _gameOptions.url[0];
+let _gameSet = {};
 
-const param1 = urlParams.get('param1'); // "value1"
-const param2 = urlParams.get('param2'); // "value2"
-console.log(param1, param2);
-// more games: https://www.chessgames.com/perl/chesscollection?cid=1019821
-// g-of-cent: https://www.youtube.com/watch?v=wsaD8GLw0qw
+function readParameters() {
+  const queryString = window.location.search;
+  if( queryString == "" ) return true;  // Using all defaults
+  const urlParams = new URLSearchParams(queryString);
+  
+  let s = "";
+  if( s = urlParams.get('mode') ) {
+    if (_gameOptions.mode.includes(s)) {
+      _gameMode = s;
+    } else {
+      return false;
+    }
+  } else if( s = urlParams.get('theme') ) {
+    if (_gameOptions.theme.includes(s)) {
+      _gameTheme = s;
+      document.getElementById('board-image').src = `/images/${_gameTheme}/board.png`;
+    } else {
+      return false;
+    }
+  } else {
+    _loadURL = urlParams.get('game');
+    if( _loadURL == null )
+      return false;
+  };
+  console.log(`Mode:${_gameMode} Style:${_gameTheme} URL:${_loadURL}`);
+  return true;
+}
 
+
+// ---------- Code to run the game -------------
+async function main() {
+  if( !readParameters() )
+    // Reroute to error page
+    window.location.href = '/error.html';
+
+  // Generate the HTML board, sidebar, and pieces
+  defineBoard();
+
+  if( _gameMode == "test" )
+    // Test mode alters UX and plays a set pf games
+    await readTestset( _loadURL );
+  else
+    _gameSet = {"urls": [_loadURL]};
+ 
+  for (const gameURL of _gameSet.urls) { 
+      await fetchGame(gameURL);
+      _game.iStep = 0;  // Play the first step
+      await playStep();
+  }
+}
+// Kick off execution
+main();
 
 </script>
 </html>

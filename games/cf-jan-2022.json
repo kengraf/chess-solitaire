@@ -1,271 +1,91 @@
 {
   "source": "Chess Life: Jan 2022",
   "title": "A Speedy Victory",
-  "subtitle": "Topalov's Quci, Brutal Brilliancy",
-  "byLine": "Bruce Pandolfini",
+  "subtitle": "Topalov's Quick, Brutal Brilliancy",
+  "annotator": "Bruce Pandolfini",
   "startingPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w kqKQ - 0 0",
   "summary": "Superficially, rapid chess games tend to be superficial. Without ample time to analyze fully, players are constrained to move more intuitively. That doesn’t mean they don’t analyze at all. Of course, they do, and sometimes quite deeply. But often good speed players don’t have to. Drawing upon opening knowledge, efficiently sufficient calculation, and overall natural feel, the best players are capable of fashioning ingenious spontaneous attacks in all kinds of quick play. Such is the case for a rapid game played by GM Veselin Topalov against GM Jonathan Speelman (Black) at Moscow in 1995. Moving on the spirit of the initiative, White rides a string of aggressive moves into a sudden mating attack. The opening began as a Caro-Kann Defense.",
   "opening": " CARO-KANN DEFENSE (B13)",
-  "playingWhite": "GM Veselin Topalov",
-  "playingBlack": "GM Jonathan Speelman",
-  "location": "Intel Grand Prix (Rapid), Moscow, 1995",
-  "moves": [
-    {
-      "WorB": "w",
-      "notation": "e4",
-      "delay": 1
-    },
-    {
-      "WorB": "b",
-      "notation": "c6",
-      "delay": 1
-    },
-    {
-      "WorB": "w",
-      "notation": "d4",
-      "delay": 1
-    },
-    {
-      "WorB": "b",
-      "notation": "d5",
-      "delay": 1
-    },
-    {
-      "WorB": "w",
-      "notation": "exd5",
-      "delay": 1
-    },
-    {
-      "WorB": "b",
-      "notation": "cxd5",
-      "delay": 1
-    },
-    {
-      "WorB": "w",
-      "notation": "c4",
-      "delay": 1
-    },
-    {
-      "WorB": "b",
-      "notation": "Nf6",
-      "delay": 1
-    },
-    {
-      "WorB": "w",
-      "notation": "Nc3",
-      "delay": 1
-    },
-    {
-      "WorB": "b",
-      "notation": "h6",
-      "delay": 1
-    },
-    {
-      "WorB": "w",
-      "notation": "cxd5",
-      "delay": 1,
-      "par": 6,
-      "comment": " White clarifies matters in the center, while accepting an isolated d-pawn. Accept full credit for either 6. Nf3 or 6. c5."
-    },
-    {
-      "WorB": "b",
-      "notation": "Nxd5",
-      "delay": 1,
-      "comment": "Naturally, Black takes back. The isolated pawn gives White more space and opportunities for attack. Black hopes o restrain the isolani and mount pressure against it as the game goes on. It doesn’t go on long.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "Bc4",
-      "delay": 1,
-      "par": 6,
-      "comment": "This develops with a threat, but Black has easy enough responses. Accept full credit for 7. Nf3. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "Nxc3",
-      "delay": 1,
-      "comment": "Black saves time, while giving White the hanging pawns (the c3/d4 complex). He also could have played either 7. ... e6 or 7. ... Nb6.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "bxc3",
-      "delay": 1,
-      "par": 5,
-      "comment": ""
-    },
-    {
-      "WorB": "b",
-      "notation": "Qc7",
-      "delay": 1,
-      "comment": "Black’s skewering attack limits White’s reasonable responses.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "Qd3",
-      "delay": 1,
-      "par": 6,
-      "comment": "Accept full credit for 9. Qb3. It deals with the threats while building his own game. ."
-    }
-    ]
-    
-    
-    
-    "fakemoves": [
-    {
-      "WorB": "b",
-      "notation": "Nc6",
-      "delay": 1,
-      "comment": "Speelman develops usefully. He still must muster his kingside.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "Nf3",
-      "delay": 1,
-      "par": 6,
-      "comment": "White mobilizes his kingside, aiming to castle soon. You my accept full credit for 10. Bb3, reducing the danger of tactics on the c-file. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "e6",
-      "delay": 1,
-      "comment": "Black will develop his king-bishop through the center. Also plausible was fianchettoing it with 10. ... g6.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "0-0",
-      "delay": 1,
-      "par": 6,
-      "comment": "White is now ready for business. His king is out of the center and he can proceed with aggressive plans. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "Bd6",
-      "delay": 1,
-      "comment": "This is an active placement, but also reasonable were both 11. ... Be7 and 11. ... Bd7.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "Re1",
-      "delay": 1,
-      "par": 6,
-      "comment": "Topalov takes the half-open file, a natural and good move under speedier conditions... and under slower ones. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "a6",
-      "delay": 1,
-      "comment": "A functional move, stopping a possible check on b5, and also supporting a subsequent ... b7-b5.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "a4",
-      "delay": 1,
-      "par": 6,
-      "comment": "White stops 13. ... b5, while giving his bishop a convenient retreat square at a2. Such a withdrawal would enable the light-squared bishop to remain on the a2-g8 diagonal. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "Na5",
-      "delay": 1,
-      "comment": "Black goes after the bishop, but it’s a two-sided place for the knight. It positions the knight to shift to the c4-square, but it gives up immediate influence over the central e5-square.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "Ba2",
-      "delay": 1,
-      "par": 6,
-      "comment": "The expected transfer. White’s bishop continues to be a menace along a key diagonal. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "Bd7",
-      "delay": 1,
-      "comment": "Black eyes the a4-pawn, with the idea of ... Ra8-c8 to follow.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "Ne5",
-      "delay": 1,
-      "par": 6,
-      "comment": "Now that Black’s influence over the e5-square is lessened, the white knight assumes this imperious perch. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "Rc8",
-      "delay": 1,
-      "comment": "Black follows through on the anticipated scheme, but with the white knight on e5, he cannot yet play ... Na5-c4.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": " Bd2",
-      "delay": 1,
-      "par": 6,
-      "comment": "White develops the bishop and strengthens his c3-weakness. He’s set to pursue more dynamic potentialities. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "b6",
-      "delay": 1,
-      "comment": "An indifferent move. Better was castling. Add 1 bonus point if you planned to answer 16. ... Bxa4 by either 17. Bxe6 or 17. Nxf7.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "Qg3",
-      "delay": 1,
-      "par": 7,
-      "comment": "White shifts his attack directly to the kingside. Obviously, Black can’t play 17. ... 0-0 because of 18. Bxh6. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "Bxe5",
-      "delay": 1,
-      "comment": "Speelman opts to eliminate the dangerous white knight before dealing with the threat to the g7-square.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "Rxe5",
-      "delay": 1,
-      "par": 6,
-      "comment": "This is the more promising way to recapture. White keeps open the e-file, as the rook remains poised for tactical operations. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "Kf8",
-      "delay": 1,
-      "comment": "The g-pawn had to be defended. Both ... g7-g6 and ... g7-g5 were thinkable, though either advance could be severely destabilizing to Black’s kingside.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "d5",
-      "delay": 1,
-      "par": 76,
-      "comment": "White pushes caution to the wind, risking the acceptance of weaknesses to open lines leading to the enemy king. The threats are mounting. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "f6",
-      "delay": 1,
-      "comment": "Black envisions forcing a queen trade, which generally is what one should consider doing when under attack. But here, the advance 19. ... f7-f6 is a bit impairing to Black’s pawn structure. More optimistic was 19. ... Nc4.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "dxe6",
-      "delay": 1,
-      "par": 8,
-      "comment": "It’s now or never. White lets his rook go to bring home a winning attack. It’s there, as we shall soon see. ."
-    },
-    {
-      "WorB": "b",
-      "notation": "fxe5",
-      "delay": 1,
-      "comment": "As my teacher often said to me, a dying man can eat anything. On 20. ... Qxe5, add 1 bonus point if you saw that 21. exd7 Rd8 22. Bf4 is crushing.** ."
-    },
-    {
-      "WorB": "w",
-      "notation": "e7+",
-      "delay": 1,
-      "par": 7,
-      "comment": "Black’s position falls apart. After 21. ... Ke8 (or 21. ... Kxe7 22. Qxg7+) 22. Qg6+ Kxe7 23. Qxg7+ wins. If 23. ... Ke8 (or 23. ... Kd8 24. Qf6+), then 24. Qf7+ Kd8 25. Qf6+ Ke8 26. Bf7+ Kf8 27. Bg6+ Kg8 28. Qf7 mate (1 bonus point). If instead 23. ... Kd6, then 24. Qf6+ Be6 (or 24. ... Kc5 25. Be3 mate) 25. Qxe6+ Kc5 26. Be3 mate (1 bonus point). .  <line break> Accordingly... 21. … Black resigned"
-    }
+  "white": "GM Veselin Topalov",
+  "black": "GM Jonathan Speelman",
+  "site": "Intel Grand Prix (Rapid), Moscow, 1995",
+      "steps" : [
+      [
+            { "WorB": "w", "notation": "e4", "delay": 1},
+            { "WorB": "b", "notation": "c6", "delay": 1},
+            { "WorB": "w", "notation": "d4", "delay": 1},
+            { "WorB": "b", "notation": "d5", "delay": 1},
+            { "WorB": "w", "notation": "exd5", "delay": 1},
+            { "WorB": "b", "notation": "cxd5", "delay": 1},
+            { "WorB": "w", "notation": "c4", "delay": 1},
+            { "WorB": "b", "notation": "Nf6", "delay": 1},
+            { "WorB": "w", "notation": "Nc3", "delay": 1},
+            { "WorB": "b", "notation": "h6", "comment":"Opening Complete. White to play"}
+      ],
+      [
+            { "WorB": "w", "notation": "cxd5", "delay": 0,       "par": 6,
+            "comment": " White clarifies matters in the center, while accepting an isolated d-pawn. Accept full credit for either 6. Nf3 or 6. c5."
+            },
+            { "WorB": "b", "notation": "Nxd5", "delay": -1,       "comment": "Naturally, Black takes back. The isolated pawn gives White more space and opportunities for attack. Black hopes to restrain the isolani and mount pressure against it as the game goes on. It doesn’t go on long." }
+      ],
+      [
+            { "WorB": "w", "notation": "Bc4", "delay": 0,       "par": 6,       "comment": "This develops with a threat, but Black has easy enough responses. Accept full credit for 7. Nf3. ." },
+            { "WorB": "b", "notation": "Nxc3", "delay": -1,       "comment": "Black saves time, while giving White the hanging pawns (the c3/d4 complex). He also could have played either 7. ... e6 or 7. ... Nb6." }
+      ],
+      [
+            { "WorB": "w", "notation": "bxc3", "delay": 0,       "par": 5,       "comment": "" },
+            { "WorB": "b", "notation": "Qc7", "delay": -1,       "comment": "Black’s skewering attack limits White’s reasonable responses." }
+      ],
+      [
+            { "WorB": "w", "notation": "Qd3", "delay": 0,       "par": 6,       "comment": "Accept full credit for 9. Qb3. It deals with the threats while building his own game. ." },
+            { "WorB": "b", "notation": "Nc6", "delay": -1,       "comment": "Speelman develops usefully. He still must muster his kingside." }
+      ],
+      [
+            { "WorB": "w", "notation": "Nf3", "delay": 0,       "par": 6,       "comment": "White mobilizes his kingside, aiming to castle soon. You my accept full credit for 10. Bb3, reducing the danger of tactics on the c-file. ." },
+            { "WorB": "b", "notation": "e6", "delay": -1,      "comment": "Black will develop his king-bishop through the center. Also plausible was fianchettoing it with 10. ... g6." }
+      ],
+      [
+            { "WorB": "w", "notation": "0-0", "delay": 0,      "par": 6,      "comment": "White is now ready for business. His king is out of the center and he can proceed with aggressive plans. ." },
+            { "WorB": "b", "notation": "Bd6", "delay": -1, "comment": "This is an active placement, but also reasonable were both 11. ... Be7 and 11. ... Bd7." }
+      ],
+      [
+            { "WorB": "w", "notation": "Re1", "delay": 0,       "par": 6,       "comment": "Topalov takes the half-open file, a natural and good move under speedier conditions... and under slower ones. ." },
+            { "WorB": "b", "notation": "a6", "delay": -1,       "comment": "A functional move, stopping a possible check on b5, and also supporting a subsequent ... b7-b5." }
+      ],
+      [
+            { "WorB": "w", "notation": "a4", "delay": 0,       "par": 6,       "comment": "White stops 13. ... b5, while giving his bishop a convenient retreat square at a2. Such a withdrawal would enable the light-squared bishop to remain on the a2-g8 diagonal. ." },
+            { "WorB": "b", "notation": "Na5", "delay": -1,       "comment": "Black goes after the bishop, but it’s a two-sided place for the knight. It positions the knight to shift to the c4-square, but it gives up immediate influence over the central e5-square." }
+      ],
+       [
+            { "WorB": "w", "notation": "Ba2", "delay": 0,       "par": 6,      "comment": "The expected transfer. White’s bishop continues to be a menace along a key diagonal. ." },
+            { "WorB": "b", "notation": "Bd7", "delay": -1,       "comment": "Black eyes the a4-pawn, with the idea of ... Ra8-c8 to follow." }
+      ],
+      [
+            { "WorB": "w", "notation": "Ne5", "delay": 0,       "par": 6,       "comment": "Now that Black’s influence over the e5-square is lessened, the white knight assumes this imperious perch. ." },
+            { "WorB": "b", "notation": "Rc8", "delay": -1,      "comment": "Black follows through on the anticipated scheme, but with the white knight on e5, he cannot yet play ... Na5-c4." }
+      ],
+      [
+            { "WorB": "w", "notation": " Bd2", "delay": 0,       "par": 6,      "comment": "White develops the bishop and strengthens his c3-weakness. He’s set to pursue more dynamic potentialities. ." },
+            { "WorB": "b", "notation": "b6", "delay": -1,       "comment": "An indifferent _move. Better was castling. Add 1 bonus point if you planned to answer 16. ... Bxa4 by either 17. Bxe6 or 17. Nxf7." }
+      ],
+      [
+            { "WorB": "w", "notation": "Qg3", "delay": 0,      "par": 7,       "comment": "White shifts his attack directly to the kingside. Obviously, Black can’t play 17. ... 0-0 because of 18. Bxh6. ." },
+            { "WorB": "b", "notation": "Bxe5", "delay": -1,       "comment": "Speelman opts to eliminate the dangerous white knight before dealing with the threat to the g7-square." }
+      ],
+      [
+            { "WorB": "w", "notation": "Rxe5", "delay": 0,      "par": 6,       "comment": "This is the more promising way to recapture. White keeps open the e-file, as the rook remains poised for tactical operations. ." },
+            { "WorB": "b", "notation": "Kf8", "delay": -1,       "comment": "The g-pawn had to be defended. Both ... g7-g6 and ... g7-g5 were thinkable, though either advance could be severely destabilizing to Black’s kingside." }
+      ],
+      [
+            { "WorB": "w", "notation": "d5", "delay": 0,      "par": 76,       "comment": "White pushes caution to the wind, risking the acceptance of weaknesses to open lines leading to the enemy king. The threats are mounting. ." },
+            { "WorB": "b", "notation": "f6", "delay": -1,       "comment": "Black envisions forcing a queen trade, which generally is what one should consider doing when under attack. But here, the advance 19. ... f7-f6 is a bit impairing to Black’s pawn structure. More optimistic was 19. ... Nc4." }
+      ],
+      [
+            { "WorB": "w", "notation": "dxe6", "delay": 0,       "par": 8,       "comment": "It’s now or never. White lets his rook go to bring home a winning attack. It’s there, as we shall soon see. ." },
+            { "WorB": "b", "notation": "fxe5", "delay": -1,       "comment": "As my teacher often said to me, a dying man can eat anything. On 20. ... Qxe5, add 1 bonus point if you saw that 21. exd7 Rd8 22. Bf4 is crushing." }
+      ],
+      [
+            { "WorB": "w", "notation": "e7+", "delay": -1,       "par": 7,       "comment": "Black’s position falls apart. After 21. ... Ke8 (or 21. ... Kxe7 22. Qxg7+) 22. Qg6+ Kxe7 23. Qxg7+ wins. If 23. ... Ke8 (or 23. ... Kd8 24. Qf6+), then 24. Qf7+ Kd8 25. Qf6+ Ke8 26. Bf7+ Kf8 27. Bg6+ Kg8 28. Qf7 mate (1 bonus point). If instead 23. ... Kd6, then 24. Qf6+ Be6 (or 24. ... Kc5 25. Be3 mate) 25. Qxe6+ Kc5 26. Be3 mate (1 bonus point). .  <line break> Accordingly... 21. … Black resigned" }
+      ]
   ]
 }
