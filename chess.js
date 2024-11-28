@@ -5,6 +5,8 @@ let _fileToX = { a:0, b:1, c:2, d:3, e:4, f:5, g:6, h:7 };  // _fileToX["c"] = 2
 let _rankToY = { 1:0, 2:1, 3:2, 4:3, 5:4, 6:5, 7:6, 8:7 };  // _rankToY["5"] = 4
 const _boardFiles ='abcdefgh';
 const _boardRanks = '87654321';  // <div> position 0 is board rank 8
+let _currentScore = 0;
+let _captureMove = false;
 
 // JSON Object for _game
 let _game = {
@@ -65,7 +67,100 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function nodeToSquareType(node) {
+    let sq = {};
+    let alpha = node.id;  // the square div is "id=a8"
+    sq.alpha = alpha;
+    sq.file = _fileToX[alpha[0]];
+    sq.rank = _rankToY[alpha[1]];
+    return sq;
+}
+
+
 // ----------------- browser interactions ---------------------
+let _dragZones = null;
+let _activePiece = null; // type of _move not node
+
+
+function clickEvent(e) {  
+    if( _activePiece ) {
+      // Second click is an attempted move
+      if( validLandingSquare(e.currentTarget) ) {
+        makeMove( _activePiece );
+      }
+    } else {
+    if( !isSquareOccupied(e.currentTarget) ) { // Clicked an open square
+      return;
+    }
+    if( !pickedValidSquare(e.currentTarget) ) { // Picked wrong color
+      return;
+    }
+    // Highlight the parent of the piece image
+    _activePiece = pickedValidSquare( e.currentTarget );
+    if( _activePiece ) {
+      highlightSquare( e.currentTarget, "click-overlay" );
+    }
+  }
+};
+
+function makeMove( toSquare ) {
+      const typeIndex = 'prnbqk'.indexOf(_activePiece.startSquare.pieceType);
+      if( moveFunctions[typeIndex]() ) {
+        // Valid move
+        scoreMove( _activePiece );
+        playStep();
+     }
+
+     _activePiece = null;
+     unhighlightSquare( document, "click-overlay" );
+     unhighlightSquare( document, "drag-overlay" );
+}
+
+function isSquareOccupied(parent, className = "piece" ) {
+  return parent.querySelector(`.${className}`) !== null;
+}
+
+function validLandingSquare(node) {
+      if( isSquareOccupied(node) ) {
+        let piece = getPieceFromNode(node);
+        if( piece[0] == _activePiece.WorB )  // same color, no good
+          return false;
+        
+        _captureMove = true;
+        removePiece(node.id);
+      } else {
+        _captureMove = false;
+      }
+      
+// determine candidate square
+      _activePiece.endSquare = {};
+      _activePiece.endSquare.alpha = node.id;
+      _activePiece.endSquare = nodeToSquareType( node );
+      return true;
+}
+
+function pickedValidSquare(node) {
+    let move = {}
+    if( !isSquareOccupied(node) ) {
+        // Clicked an unoccupied square
+        return null;
+    }   
+    piece = getPieceFromNode(node);
+    if( _game.WorB != piece[0] ) {
+      // Wrong color piece
+      return null;
+    }
+    move.WorB = piece[0];
+    move.pieceType = piece[1];
+    move.startSquare = nodeToSquareType( node );
+    return move;
+}
+
+function getPieceFromNode(node) {
+  node = node.querySelector(`.piece`);
+  return node.getAttribute('data-group');
+}
+
 window.addEventListener('resize', () => {
   resizeBoard(window.innerWidth, window.innerHeight);
 });
@@ -103,8 +198,6 @@ function resizeBoard(w,h) {
   let r = document.querySelector(':root');
   const rootStyles = getComputedStyle(document.documentElement);
   side = document.getElementById('sidebar').offsetWidth;
-  side1 = document.getElementById('board').offsetWidth;
-  console.log(`board:${side1} sidebar: ${side}px`);
   squareSize = Math.floor(Math.min(w-side,h)/8);
 
   var width = (squareSize*8); 
@@ -134,23 +227,23 @@ function smoothMoveImage(x, y) {
 }
 
 // ------------------ Move Functions --------------------
-function blockedMoveDiagonal() {
+function blockedMoveDiagonal(move = _move) {
    return false;
-   const fDiff = _move.startSquare.file - _move.endSquare.file;
-   const rDiff = _move.startSquare.rank - _move.endSquare.rank;
+   const fDiff = move.startSquare.file - move.endSquare.file;
+   const rDiff = move.startSquare.rank - move.endSquare.rank;
    const container = document.getElementById(square);
    if( container.innerHTML != "" ) return true;
    return false;
 }
 
-function blockedMoveRank() {
-  let y = _move.startSquare.rank;
-  let xmin = _move.startSquare.file;
-  let xmax = _move.endSquare.file;
+function blockedMoveRank(move = _move) {
+  let y = move.startSquare.rank;
+  let xmin = move.startSquare.file;
+  let xmax = move.endSquare.file;
   let inc = 1;
-  if( _move.startSquare.file > _move.endSquare.file) {
-    xmin = _move.endSquare.file;
-    xmax = _move.startSquare.file;
+  if( move.startSquare.file > move.endSquare.file) {
+    xmin = move.endSquare.file;
+    xmax = move.startSquare.file;
   }
   for( x = xmin+inc; x<xmax; x +=inc) {
     // if piece on square fail
@@ -160,14 +253,14 @@ function blockedMoveRank() {
   return false;
 }
 
-function blockedMoveFile() {
-  let x = _move.startSquare.file;
-  let ymin = _move.startSquare.rank;
-  let ymax = _move.endSquare.rank;
+function blockedMoveFile(move = _move) {
+  let x = move.startSquare.file;
+  let ymin = move.startSquare.rank;
+  let ymax = move.endSquare.rank;
   let inc = 1;
-  if( _move.startSquare.rank > _move.endSquare.rank ) {
-    ymin = _move.endSquare.rank;
-    ymax = _move.startSquare.rank;
+  if( move.startSquare.rank > move.endSquare.rank ) {
+    ymin = move.endSquare.rank;
+    ymax = move.startSquare.rank;
   }
   for( y = ymin+inc; y<ymax; y +=inc) {
     // if piece on square fail
@@ -177,70 +270,70 @@ function blockedMoveFile() {
   return false;
 }
 
-function validKingMove() {
+function validKingMove(move = _move) {
   // The end square is always empty when we get here
-  const fDiff = _move.startSquare.file - _move.endSquare.file;
-  const rDiff = _move.startSquare.rank - _move.endSquare.rank;
+  const fDiff = move.startSquare.file - move.endSquare.file;
+  const rDiff = move.startSquare.rank - move.endSquare.rank;
   if( (fDiff == 0) && (Math.abs(rDiff) == 1) ) return true;
   if( (rDiff == 0) && (Math.abs(fDiff) == 1) ) return true;
   if( (Math.abs(fDiff) == 1) && (Math.abs(rDiff) == 1) ) return true;
   return false;
 }
 
-function validKnightMove() {
+function validKnightMove(move = _move) {
   // No blocking for knights
-  const fDiff = _move.startSquare.file - _move.endSquare.file;
-  const rDiff = _move.startSquare.rank - _move.endSquare.rank;
+  const fDiff = move.startSquare.file - move.endSquare.file;
+  const rDiff = move.startSquare.rank - move.endSquare.rank;
   if( (Math.abs(fDiff) == 1) && (Math.abs(rDiff) == 2) ) return true;
   if( (Math.abs(fDiff) == 2) && (Math.abs(rDiff) == 1) ) return true;
   return false;
 }
 
-function validBishopMove() {
-  const fDiff = _move.startSquare.file - _move.endSquare.file;
-  const rDiff = _move.startSquare.rank - _move.endSquare.rank;
+function validBishopMove(move = _move) {
+  const fDiff = move.startSquare.file - move.endSquare.file;
+  const rDiff = move.startSquare.rank - move.endSquare.rank;
   if( Math.abs(fDiff) != Math.abs(rDiff) ) 
     // Does not share diagonal
     return false;
-  return !blockedMoveDiagonal(_move.startSquare, _move.endSquare );
+  return !blockedMoveDiagonal(move.startSquare, move.endSquare );
 }
 
-function validRookMove() {
-  if( _move.startSquare.file == _move.endSquare.file ) {
-    return !blockedMoveFile(_move.startSquare, _move.endSquare );
+function validRookMove(move = _move) {
+  if( move.startSquare.file == move.endSquare.file ) {
+    return !blockedMoveFile(move.startSquare, move.endSquare );
   }
-  if( _move.startSquare.rank == _move.startSquare.rank ) {
-    return !blockedMoveRank(_move.startSquare, _move.endSquare );
+  if( move.startSquare.rank == move.startSquare.rank ) {
+    return !blockedMoveRank(move.startSquare, move.endSquare );
   }
   return false
 }
 
-function validQueenMove() {
-  if( validRookMove()) 
+function validQueenMove(move = _move) {
+  if( validRookMove(move)) 
    return true;
-  return validBishopMove();
+  return validBishopMove(move);
 }
 
-function validPawnMove() {
-  const file = _move.startSquare.file;
-  const endFile = _move.endSquare.file;
-  const rank = _move.startSquare.rank;
-  const endRank = _move.endSquare.rank;
+function validPawnMove(move = _move) {
+  const file = move.startSquare.file;
+  const endFile = move.endSquare.file;
+  const rank = move.startSquare.rank;
+  const endRank = move.endSquare.rank;
   let direction = 1;
   let initialRank = 1;
   
-  if( _move.WorB =='b' ) {
+  if( move.WorB =='b' ) {
     direction = -1;
     initialRank = 6;
   }
   
-  if ( !_move.captureMove ) {
+  if ( !move.captureMove ) {
     // moving ahead
     if( file != endFile) return false;
     if( rank == initialRank ) {
       if( rank+(2*direction) == endRank ) {
         if( blockedMoveFile() ) return false;
-        _game.enPassant = index2alpha(file, rank+direction);
+          _game.enPassant = index2alpha(file, rank+direction);
         return true;
       }
     }
@@ -250,24 +343,23 @@ function validPawnMove() {
   // Capturing
   if( Math.abs(file-endFile) != 1 ) return false;
   if( rank+direction != endRank ) return false;
-  if( _move.enPassant == _move.endSquare.alpha )  
+  if( move.enPassant == move.endSquare.alpha )  
     removePiece( index2alpha(endFile, endRank-direction) );
   return true;
 }
 
-// ------------------ piece location and placement ------------------
-function identifyPiece() {
 
-  const typeIndex = 'prnbqk'.indexOf(_move.pieceType);
+// ------------------ piece location and placement ------------------
   const moveFunctions = [
-    () => validPawnMove(),
-    () => validRookMove(),
-    () => validKnightMove(),
-    () => validBishopMove(),
-    () => validQueenMove(),
-    () => validKingMove(),
+    (m) => validPawnMove(m),
+    (m) => validRookMove(m),
+    (m) => validKnightMove(m),
+    (m) => validBishopMove(m),
+    (m) => validQueenMove(m),
+    (m) => validKingMove(m),
  ];
    
+function identifyPiece(node) {
   const colorType = _move.WorB + _move.pieceType;
   const candidates = document.querySelectorAll(`[data-group="${colorType}"]`);
   if( !candidates ) {
@@ -276,14 +368,10 @@ function identifyPiece() {
   };
   
   for (const node of candidates) {
-    const alpha = node.parentNode.id;
-    _move.startSquare.alpha = alpha;
-    _move.startSquare.file = _fileToX[alpha[0]];
-    _move.startSquare.rank = _rankToY[alpha[1]];
-    
+    _move.startSquare = nodeToSquareType(node.parentNode);
     funcIndex = "prnbqk".indexOf(_move.pieceType);
     if( moveFunctions[funcIndex]() ) 
-      return alpha;
+      return;  // function set globals
   };
   _move.startSquare = {};
   console.log("No match for move: " + `${_move}`);
@@ -406,11 +494,11 @@ async function transitionPiece() {
   img.style.visibility = "hidden";
 }
 
-function movePiece() {
-  removePiece(_move.startSquare.alpha);
-  if( _move.promotionPiece )
-    _move.pieceType = _move.promotionPiece;
-  placePiece( _move.WorB + _move.pieceType, _move.endSquare.alpha);
+function movePiece(move = _move) {
+  removePiece(move.startSquare.alpha);
+  if( move.promotionPiece )
+    move.pieceType = move.promotionPiece;
+  addPieceToBoard( move.WorB + move.pieceType, move.endSquare.alpha);
 };
 
 function removePiece(square) {
@@ -418,25 +506,33 @@ function removePiece(square) {
   if( container ) container.replaceChildren();
 };
 
-function placePiece( piece, square) {
+function addPieceToBoard( piece, square) {
 
-  // Move to new square
   let container = document.getElementById(square);
-  container.innerHTML += `<img class="piece" data-group="${piece}" src="/images/${_gameTheme}/${piece}.png" alt="" >`;
+  const img = document.createElement("img");
+  img.className = "piece";
+  img.setAttribute("data-group", piece);
+  img.setAttribute("src", `/images/${_gameTheme}/${piece}.png` );
+  container.appendChild(img);
 
+    // Add dragstart listener to the image
+    img.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text/plain", e.currentTarget.id);
+      _activePiece = pickedValidSquare( e.currentTarget );
+      if( _activePiece ) {
+        highlightSquare( e.currentTarget, "drag-overlay" );
+      } else {
+        e.preventDefault();
+      }
+    });
 
   // Undo any previous check
-  container = document.getElementById("checkSquare");
-  container.style.visibility = "hidden";
+  unhighlightSquare( document, "check-overlay" );
 
   // Highlight checked King
   if( _move.checkResult || _move.mateResult ) { 
-    container.style.visibility = "visible";
-    const colorType = ((_move.WorB=="w") ? "bk" : "wk");
     const king = document.querySelectorAll(`[data-group="${colorType}"]`)[0];
-    let cell = alpha2index(king.id);
-    container.style.left = (cell[0]*squareSize)+'px';
-    container.style.top = (cell[1]*squareSize)+'px';
+    highlightSquare( king, "check-overlay" );
     if( _move.mateResult ) {
         // Lay down the king
         king.style.transform = 'rotate(60deg)';  
@@ -487,7 +583,7 @@ function setupGame( fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w kqKQ - 
         else {
           piece = "w" + lowPiece;
         }
-        placePiece(piece, `${_boardFiles[fileIndex]}${boardRank}` );
+        addPieceToBoard(piece, `${_boardFiles[fileIndex]}${boardRank}` );
         fileIndex++;
       } else if(_boardRanks.includes(p)) {
         // skips empty squares
@@ -497,45 +593,99 @@ function setupGame( fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w kqKQ - 
   }
 };
 
-function squareTemplate(file, rank) {
-  return `<div id="${file}${rank}" class='square file-${file} rank${rank}' >`+"</div>";
-};
-
 function defineBoard() {
+  let child, img  = null;
   // Populate the global variables
   resizeBoard(window.innerWidth, window.innerHeight);
 
   // Define the squares, the pieces are added later
   const container = document.getElementById("board");
 
-  // Add hidden square to highlight checks
-  container.innerHTML += "<div id='checkSquare' class='checkSquare square file-a rank8'></div>"
-  
   for (let rank = 0; rank < _boardRanks.length; rank++) {
     for (let file = 0; file < _boardFiles.length; file++) {
-      container.innerHTML += squareTemplate(_boardFiles[file],_boardRanks[rank]);
+      child = document.createElement("div");
+      child.className = `square file-${_boardFiles[file]} rank${_boardRanks[rank]}`;
+      child.id=`${_boardFiles[file]}${_boardRanks[rank]}`;
+      img = "url('" + _origin + "/images/" + _gameTheme;
+      img += ((rank+file)%2 == 1 ) ? "/darkSquare.png')" : "/lightSquare.png')";
+      child.style.background = img;
+      child.style.backgroundSize = "cover";
+      container.appendChild(child);
+
+      // Make squares clickable
+      child.addEventListener('click', (e) => {
+        clickEvent(e);
+      });
+
+      // Allow squares to respond to drag&drops
+      child.addEventListener('dragenter', (e) => {
+         e.preventDefault(); 
+        highlightSquare( e.currentTarget, "drag-overlay" );
+     });
+
+      child.addEventListener("dragover", (e) => {
+        e.preventDefault(); 
+       });
+
+      child.addEventListener("dragleave", (e) => {
+        unhighlightSquare( e.currentTarget, "drag-overlay" );
+      });
+
+      // Add drop listener to drop zones
+      child.addEventListener("drop", (e) => {
+        e.preventDefault();
+        if( validLandingSquare(e.currentTarget) ) {
+           makeMove( _activePiece );
+        };
+      });
     }
   }
 };
 
+function unhighlightSquare( square, className ) {
+  let elements = square.getElementsByClassName(className);
+  Array.from(elements).forEach(element => {
+    element.remove();
+  });
+}
+
+function highlightSquare( square, className ) {
+  let child = document.createElement("div");
+  child.className = "square "+className;
+  square.appendChild(child);
+}
+
 // --------------------- game control functions --------------------------- //
+function scoreMove() {
+  let half = _game.steps[_game.iStep][0];
+  let goodMoves = [];
+  goodMoves.push( { "note":half.notaton, "par":half.par} );
+  if (Array.isArray(half.alts)) {
+    half.alts.forEach(item => {
+        goodMoves.push( { "note":item.notaton, "par":item.par} );
+    });
+  };
+  
+  let note = _activePiece.piece.toUppercase();
+  if( note == "P" ) note = "";
+  if( _captureMove ) note += "x";
+  note += _activePiece._endSquare.alpha;
+  
+  goodMoves.forEach(item => {
+      if( note == item.note )
+        _currentScore += item.par;
+    });
+  
+  playStep();
+}
 
 async function playStep() {
   if( _game.iStep == 0 ) {
     // First step, so show summary in sidebar
     showSummaryInSidebar();
+    _game.moveCount = 0;
   }
   
-  if( _game.iStep == _game.steps.length ) {
-    // Game over, show result
-    if( _game.currentPosition == _game.endingPosition )
-        console.log("%cSuccess -" +`${_game.summary}`, "color: green;" );
-    else
-        console.log("%cFailed -" + `${_game.summary} - ${_game.currentPosition}`, "color: red;" );
-    console.log(`${_game.endingPosition}`);
-    return;
-  }
-
   _step = _game.steps[_game.iStep];
   for( _step.iMove = 0; _step.iMove < _step.length; _step.iMove++ ) {
     _move = _step[_step.iMove];
@@ -543,7 +693,20 @@ async function playStep() {
   }
   
   showStepInSidebar();
+  showScoreInSidebar();
   _game.iStep++;
+
+  if( _game.iStep == _game.steps.length ) {
+    // Game over, show result
+    showResultInSidebar();
+    
+    if( _game.currentPosition == _game.endingPosition )
+        console.log("%cSuccess -" +`${_game.summary}`, "color: green;" );
+    else
+        console.log("%cFailed -" + `${_game.summary} - ${_game.currentPosition}`, "color: red;" );
+    console.log(`${_game.endingPosition}`);
+  }
+
   //Wait for a user action to execute the next step
 }
 
@@ -634,54 +797,80 @@ async function playMove() {
       transitionPiece();
       if( _move.promotionPiece )
         _move.pieceType = _move.promotionPiece;
-      placePiece( _move.WorB + _move.pieceType, _move.endSquare.alpha);
+      addPieceToBoard( _move.WorB + _move.pieceType, _move.endSquare.alpha);
     
   }
   if( _move.delay ) 
     await sleep( _move.delay * 1000 );
-
+  _game.WorB = (_move.WorB == 'w') ? "b" : "w";
   return;
 };
 
 // --------------- Sidebar functions ---------------------------
 function showStepInSidebar() {
-  let text, white, black, moveNum = "";
+  let text, white, black, par = "";
   
-  for( m = 0; m < _step.length; m ) {
-    if( _step[m].WorB == "w" ) {
-      _game.MoveCount++;
-      white = `<p>${_step[m].notation}</p>`;
-      black = (_step[m].comment) ? `<p>${_step[m].notation}</p>` : "...";
-    } else {
-      black = `<p>${_step[m].notation}</p><br/>`;
-      white = (m == 0) ? `<p>${_step[m].notation}</p>` : "...";
+  m = 0; 
+  while( m < _step.length ) {
+    if(( m+1 <  _step.length ) && ! _step[m].comment ) {
+      // look ahead for a full move
+      // first half move is always white and never scored
+      white = _step[m++].notation;
+      black = _step[m].notation;
+      _game.moveCount++;
     }
+    else {
+      // Handle as a half move
+      if( _step[m].WorB == "w" ) {
+        _game.moveCount++;
+        white = _step[m].notation;
+        black = "...";
+      } else {
+        white = "...";
+        black = _step[m].notation;
+      }
+    }
+  
+    text = `<p class="move-count">${_game.moveCount}:</p>`;
+    text += `<p class="move-half">${white}</p>`
+    // Add score if any
+    par = (_step[m].par) ? `Score: ${_step[m].par}` : "";
+    text += `<p class="move-score">${par}</p>`;
+    text += `<p class="move-half">${black}</p>`;
+    addToSidebar( text, "move-div" );
 
-    //par = (_step[m].par) ? `<p>Score: ${_step[m].par}</p>` : "";
-    moveNum = `<p>${_game.MoveCount}</p>`;
-    
     if( _step[m].comment ) {
-      addToSidebar( text);
-      text = "";
-    } else {
-      text += moveNum + white + par + black;
+      // Add comment
+      addToSidebar( `<p>${_step[m].comment}</p>`, "sidebar-div" );
     }
+    text = "";
+    m++;
   }
+}
+
+function showResultInSidebar() {
+  addToSidebar( `<p style="font-size: 24pt; color:green"><b>Score: </b>${_currentScore}</p>`, "sidebar-div");
+
+}
+
+function showScoreInSidebar() {
+  score = document.getElementById("currentScore");
+  score.innerHTML = _currentScore;
 }
 
 function showSummaryInSidebar() {
   let text =  `<h2>${_game.title}</h2>
   <h3>${_game.subtitle}</h3>
-  <b>Annotator: </b>${_game.annotator}<br/>
+  <p><b>Annotator: </b>${_game.annotator}<br/>
   <b>Source: </b>${_game.source}<br/>
-  <b>Opening: </b>${_game.opening}<br/>`
+  <b>Opening: </b>${_game.opening}<br/><p/>`
   addToSidebar( text, "sidebar-div" );
   
-  addToSidebar( `<b>Summary: </b>${_game.summary}`, "sidebar-div");
+  addToSidebar( `<p><b>Summary: </b>${_game.summary}</p>`, "sidebar-div");
 
   }
 
-function addToSidebar( text, className )
+function addToSidebar( text, className="div" )
 {
   let sidebar = document.getElementById( "sidebar-top" );
   const child = document.createElement("div");
@@ -691,7 +880,5 @@ function addToSidebar( text, className )
     child.id = "sidebar-0";
     child.innerHTML = text;
     sidebar.appendChild(child);
-
-    // Force the scroll to the bottom entry
     sidebar.scrollTop = sidebar.scrollHeight;   
 }

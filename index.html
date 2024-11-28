@@ -14,8 +14,7 @@
 <body>
 <div class="window-container">
   <div class="board-container">
-    <div id="board" class="board">
-      <img id="board-image" class="board-image" src="/images/classic/board.png" alt="board">
+    <div id="board" class="grid-container">
 <!-- JS generated pieces: defineBoard() and setupGame(FEN) -->
     </div>
  </div>
@@ -23,14 +22,17 @@
 <!-- TODO should sidebar be auto generated in script? -->
   <div id="sidebar" class="sidebar">
     <div id="sidebar-container" class="sidebar-container">
-      <div id="sidebar-top" class="sidebar-top"></div>
+      <div id="sidebar-top" class="sidebar-top">
+        <div id="sidebar-text" class="sidebar-text"></div>
+      </div>
       <div id="sidebar-bottom" class="sidebar-bottom">
         <div class="sidebar-button-container">
           <button id="jumpBackBtn" class="sidebar-button" title="Go back a set of moves"><p class="double">&laquo;</p></button>
-          <button id="halfBackBtn" class="sidebar-button" title="Go back a halfmove"><p class="arrow">&#9668;</p></button>
-          <button id="halfForwardBtn" class="sidebar-button" title="Play next halfmove"><p  class="arrow">&#9658;</p></button>
+          <button id="halfBackBtn" class="sidebar-button" title="Go back a move"><p class="arrow">&#9668;</p></button>
+          <button id="halfForwardBtn" class="sidebar-button" title="Play next move"><p  class="arrow">&#9658;</p></button>
           <button id="jumpForwardBtn" class="sidebar-button" title="Play next set of moves"><p class="double">&raquo;</p></button>
         </div>
+        <div><p id="currentScore" class="sidebar-score">99</p></div>
       </div>
     </div>
   </div>
@@ -41,6 +43,7 @@
 <script>
 
 // Globals
+const _origin = window.location.origin;
 const _gameOptions = { "mode": ["solitaire", "test"],
                   "theme": ["classic", "modern" ],
                   "url": ["/games/cf-jan-2022.json"]};
@@ -64,7 +67,6 @@ function readParameters() {
   } else if( s = urlParams.get('theme') ) {
     if (_gameOptions.theme.includes(s)) {
       _gameTheme = s;
-      document.getElementById('board-image').src = `/images/${_gameTheme}/board.png`;
     } else {
       return false;
     }
