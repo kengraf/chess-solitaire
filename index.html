@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href=  "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,400&display=swap" rel="stylesheet">
 </head>    
 
 <body>
@@ -26,17 +26,17 @@
         <div id="sidebar-text" class="sidebar-text"></div>
       </div>
       <div id="sidebar-bottom" class="sidebar-bottom">
-        <div class="sidebar-button-container">
-          <button id="jumpBackBtn" class="sidebar-button" title="Go back a set of moves"><p class="double">&laquo;</p></button>
-          <button id="halfBackBtn" class="sidebar-button" title="Go back a move"><p class="arrow">&#9668;</p></button>
-          <button id="halfForwardBtn" class="sidebar-button" title="Play next move"><p  class="arrow">&#9658;</p></button>
-          <button id="jumpForwardBtn" class="sidebar-button" title="Play next set of moves"><p class="double">&raquo;</p></button>
+        <div class="sidebar-score-container">
+          <div id="currentScore" class="sidebar-score">0</div>
         </div>
-        <div><p id="currentScore" class="sidebar-score">99</p></div>
+        <div class="sidebar-button-container">
+          <button id="forwardBtn" class="sidebar-button" title="Play next move"><p  class="arrow">Show Move &#9658;</p></button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<img id="transitionPiece" class="transitionPiece">
 </body>
 
 <script type="text/javascript" src="chess.js"></script>

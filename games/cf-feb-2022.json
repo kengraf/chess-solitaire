@@ -1,0 +1,336 @@
+{
+    "source": "Chess Life: Feb 2022",
+    "title": "The Immortal Akiba Rubinstein",
+    "subtitle": "TIt turns out he wasn’t just good at openings and endgames...",
+    "annotator": "Bruce Pandolfini",
+    "startingPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w kqKQ - 0 0",
+    "summary": "For seven or eight years— let’s say 1907 to 1914 — Akiba Rubinstein (1880-1961) may have been the best chess player in the world. His name often appears on lists of great players who might have become world champion if events had gone a little differently, but the quality of his performances declined significantly after the ravages of World War I. He was certainly known for his opening contributions and especially for his consummate mastery of endings. But he could also attack with power and élan, as in this month’s game against Amos Burn (Black) at Ostend in 1906. The game began as a Queen’s Gambit Declined:",
+    "opening": "QUEEN’S GAMBIT DECLINED(D40)",
+    "white": "Akiba Rubinstein",
+    "black": "Amos Burn",
+    "site": "Ostend, 1906",
+    "steps": [
+        [
+            {
+                "WorB": "w",
+                "notation": "d4",
+                "delay": 0
+            },
+            {
+                "WorB": "b",
+                "notation": "d5",
+                "delay": 0
+            },
+            {
+                "WorB": "w",
+                "notation": "Nf3",
+                "delay": 0
+            },
+            {
+                "WorB": "b",
+                "notation": "Nf6",
+                "delay": 0
+            },
+            {
+                "WorB": "w",
+                "notation": "c4",
+                "delay": 0
+            },
+            {
+                "WorB": "b",
+                "notation": "e6",
+                "delay": 0
+            },
+            {
+                "WorB": "w",
+                "notation": "Nc3",
+                "delay": 0
+            },
+            {
+                "WorB": "b",
+                "notation": "Nbd7",
+                "comment": "Opening Complete. White to play"
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "e3",
+                "par": "5",
+                "comment": "White secures his center and opens a developing line for the king-bishop. You may accept full credit for 5. Bg5 or 5. cxd5.",
+                "alts": [
+                    {
+                        "notation": "Bg5",
+                        "par": 5
+                    },
+                    {
+                        "notation": "cxd5",
+                        "par": 5
+                    }
+                ]
+            },
+            {
+                "WorB": "b",
+                "notation": "Be7",
+                "comment": "Black gets ready to castle kingside. He could also have played 5. ... Bb4 or even 5. ... c6."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Bd3",
+                "par": "5",
+                "comment": "Unafraid of losing a tempo (if Black plays 6. ... dxc4), Rubinstein activates his king-bishop. Accept full credit for 6. cxd5 or 6. Be2.",
+                "alts": [
+                    {
+                        "notation": "Be2",
+                        "par": 5
+                    },
+                    {
+                        "notation": "cxd5",
+                        "par": 5
+                    }
+                ]
+            },
+            {
+                "WorB": "b",
+                "notation": "0-0",
+                "comment": "Black castles first. White has a slight edge."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "0-0",
+                "par": "5",
+                "comment": "Now it’s Rubinstein’s turn to castle. You may have full credit for 7. cxd5.",
+                "alts": [
+                    {
+                        "notation": "cxd5",
+                        "par": 5
+                    }
+                ]
+            },
+            {
+                "WorB": "b",
+                "notation": "dxc4",
+                "comment": "Black takes the tempo after all, though it does surrender control over the e4-square. The idea is to liquidate a few pawns, giving White an isolated d-pawn — which he may not mind!"
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Bxc4",
+                "par": "5"
+            },
+            {
+                "WorB": "b",
+                "notation": "c5",
+                "comment": "Natural. Black hopes to gain some freedom, while giving White an isolani."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Qe2",
+                "par": "5",
+                "comment": "This is a typical deployment. White has the option of placing a rook on the d1-square."
+            },
+            {
+                "WorB": "b",
+                "notation": "Nb6",
+                "comment": "Burn attacks the c4-bishop. He might have tried 9. ... a6, preparing ... b7-b5."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Bb3",
+                "par": "5",
+                "comment": "White keeps the bishop on the a2-g8 diagonal, which winds up being important. You may accept full credit for 10. Bd3 or 10. dxc5.",
+                "alts": [
+                    {
+                        "notation": "Bd3",
+                        "par": 5
+                    },
+                    {
+                        "notation": "dxd5",
+                        "par": 5
+                    }
+                ]
+            },
+            {
+                "WorB": "b",
+                "notation": "cxd4",
+                "comment": "Ending the tension and hoping to inflict an isolani. Also possible was 10. ... Nbd5."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "exd4",
+                "par": "5",
+                "comment": "Rubinstein accepts the isolated d-pawn to open lines for attack and gain space. His edge is minimal, nothing to write home about. Accept full credit for 11. Nxd4.",
+                "alts": [
+                    {
+                        "notation": "Nxd4",
+                        "par": 5
+                    }
+                ]
+            },
+            {
+                "WorB": "b",
+                "notation": "Bd7",
+                "comment": "Black’s queen-bishop is not very useful here,but at least his home rank is cleared."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Re1",
+                "par": "5",
+                "comment": "White doubles up on the open e-file. You may accept full credit for 12. Ne5, establishing a powerful pacement in the enemy camp."
+            },
+            {
+                "WorB": "b",
+                "notation": "Bc6",
+                "comment": "Black finds something useful for the lightsquared bishop."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Ne5",
+                "par": "5",
+                "comment": "White’s knight assumes an imperious post, anchored by the isolated d-pawn. Black must now decide whether or not to take that attacked d-pawn."
+            },
+            {
+                "WorB": "b",
+                "notation": "Bd5",
+                "comment": "Black tries to secure the position. On 13. ... Qxd4, add 1 bonus point if you had planned on 14. Nxf7!."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Nxd5",
+                "par": "5",
+                "comment": "Now that Black’s light-squared bishop is more menacing, Rubinstein gets rid of it."
+            },
+            {
+                "WorB": "b",
+                "notation": "Nbxd5",
+                "comment": "Slightly better was possibly 14. ... Nfxd5, which avoids White’s next move.*"
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Bg5",
+                "par": "5",
+                "comment": "Rubinstein clears the home rank and eyes some interesting tactics."
+            },
+            {
+                "WorB": "b",
+                "notation": "Rc8",
+                "comment": "A mistake. Two better moves were 15. ... Bb4 and 15. ... Qd6. Black is now lost."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Bxf6",
+                "par": "6",
+                "comment": "A winning move. Just like that. It doesn’t matter how Black takes back."
+            },
+            {
+                "WorB": "b",
+                "notation": "Bxf6"
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Nxf7",
+                "par": "7",
+                "comment": "Black’s position falls apart. If Burn had played 16. ... Nxf6, then 17. Nxf7 Rxf7 18. Qxe6 wins (1 bonus point). Or if he had tried 16. ... gxf6, then 17. Qg4+ Kh8 18. Nxf7+ Rxf7 19. Qxe6 also wins (1 bonus point)."
+            },
+            {
+                "WorB": "b",
+                "notation": "Rxf7"
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Qxe6",
+                "par": "5",
+                "comment": "Black’s position is in tatters. The b3-bishop now becomes the destroyer of worlds."
+            },
+            {
+                "WorB": "b",
+                "notation": "Bxd4",
+                "comment": "The try 18. ... Kf8 gets the rook out of the pin, but it wouldn’t have saved the game."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Bxd5",
+                "par": "5",
+                "comment": "White is going to emerge materially ahead however Black continues."
+            },
+            {
+                "WorB": "b",
+                "notation": "Bxf2+",
+                "comment": "This looks good, but it doesn’t save the day."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Kh1",
+                "par": "5"
+            },
+            {
+                "WorB": "b",
+                "notation": "Qf8",
+                "comment": "Black hopes that he still has some life after 21. Qxf7+ Qxf7 22. Bxf7+ Kxf7 23. Rf1 Rc2."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Rf1",
+                "par": "6",
+                "comment": "But this move is much stronger than 21. Qxf7+. The pinned rook cannot run away."
+            },
+            {
+                "WorB": "b",
+                "notation": "Rc2",
+                "comment": "This defense doesn’t quite work."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Rac1",
+                "par": "6",
+                "comment": "By developing this last piece, White ensures a quick win."
+            },
+            {
+                "WorB": "b",
+                "notation": "Rxc1",
+                "comment": "Obviously, 22. ... Rxb2 loses in several ways, including by 23. Qxf7+ followed by mate, i.e., 23. ... Qxf7 24. Rc8 mate or 23. ... Kh8 24. Qxf8 mate."
+            }
+        ],
+        [
+            {
+                "WorB": "w",
+                "notation": "Rxc1",
+                "par": "5",
+                "comment": "White has unanswerable threats and Black has nothing. So... Black resigned. A very neat and economical little gem by Rubinstein"
+            }
+        ]
+    ]
+}

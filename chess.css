@@ -5,7 +5,7 @@
   --sidebar-width: 300;
   --theme-light-color: #D9E4E8;
   --theme-dark-color: #7498AE;
-  --font-family: "Montserrat", "Arial", sans-serif;
+  --font-family: "Roboto",  "Arial", sans-serif; /* "Montserrat" */
 }
 
 body {
@@ -44,13 +44,6 @@ h1, h2, h3, p {
 .todo_color-classic {  
   --dark-color: #C5AB8A;
   --light-color: #74543B;
-}
-
-.montserrat-font {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
 }
 
 .sidebar {
@@ -105,8 +98,18 @@ h1, h2, h3, p {
   flex: 2;
   font-style: italic;
 }
-.move-score {
+
+.move-positive {
+  color: lightgreen;
   flex: 5;
+  font-weight: bold; 
+  justify-content: center;
+}
+
+.move-negative {
+  color: red;
+  flex: 5;
+  justify-content: center;
 }
 
 .sidebar-bottom {
@@ -118,25 +121,37 @@ h1, h2, h3, p {
 }
 
   .sidebar-button-container {
-    display: 3;
+    flex: 3;
     height: 100%;
     width: 100%;
     justify-content: center;
-    padding: 4px;
-    padding-left: 20px;
+    padding-left: 12px;
 
   }
+
+.sidebar-score-container {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+  height: 100%;
+}
+
+.sidebar-score {
+  justify-content: right;
+  align-items: center;
+  font-size: 14pt;
+  color: lightgreen;
+}
    
     .sidebar-button {
-      flex: 1;
-      padding: 2px;
       cursor: pointer;
       background-color: black;
-      max-width: 40px;
-      height: 100%;
+      height: 90%;
       justify-content: center;
       border-radius: 8px;
-      border: none;
+      border-width: 2px;
+      border-color: grey;
     }
     .sidebar-button p {
       margin: 0px;
@@ -144,28 +159,16 @@ h1, h2, h3, p {
       color: white;
     }
     
-    .sidebar-button .double {
-      transform: translateY(-20px);
-      font-size: 36pt;
-    }
-    
     .sidebar-button .arrow {
-       transform: translateY(-20px);
-     font-size: 24pt;
+     padding: 2px;
+     align-items: center;
+     font-size: 14pt;
     }
     
     .sidebar-button button:hover {
       background-color: #007BFF;
-      color: white;
+      color: grey;
     }
-
-.sidebar-score {
-  flex: 1;
-  padding-right: 20px;
-  height: 100%;
-  font-size: 24pt;
-  color: green;
-}
 
 
 /* Dynamic squares combinw file and rank for board position */
@@ -188,6 +191,9 @@ h1, h2, h3, p {
 .file-h {  left: calc(7 * var(--square-size)); }
 
 .square {
+      display: flex;
+      align-items: center;
+      justify-content: center;
   position: absolute;
   width: var(--square-size);
   height: var(--square-size);
@@ -199,7 +205,7 @@ h1, h2, h3, p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 0, 0.2);
+    background-color: rgba(255, 255, 0, 0.3);
     pointer-events: none;
     transition: background-color 0.3s ease;
 }
@@ -210,7 +216,7 @@ h1, h2, h3, p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(255, 0, 0, 0.5);
     pointer-events: none;
     transition: background-color 0.3s ease;
 }
@@ -221,9 +227,53 @@ h1, h2, h3, p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 0, 0.4);
     pointer-events: none;
     transition: background-color 0.3s ease;
+}
+
+.probe-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 255, 0, 0.4);
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+}
+
+.result-overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: 36pt;
+    color: lightgreen;
+    z-index: 10;
+    background-color: rgba(128,128,128, 0.6);
+    transition: background-color 0.3s ease;
+    pointer-events: none;
+}
+
+
+.thumbs-overlay {
+    width: 70%;
+    height: 70%;
+}
+
+.transitionPiece {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--square-size);
+  height: var(--square-size);
+  z-index: 9;
+  visibility:hidden;
 }
 
 .piece {
@@ -231,7 +281,7 @@ h1, h2, h3, p {
   left: 0;
   width: var(--square-size);
   height: var(--square-size);
-  z-index: 10;
+  z-index: 8;
   cursor: grab;
   pointer-events = auto;
 }

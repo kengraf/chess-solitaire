@@ -11,15 +11,15 @@
   "site": "Intel Grand Prix (Rapid), Moscow, 1995",
       "steps" : [
       [
-            { "WorB": "w", "notation": "e4", "delay": 0},
-            { "WorB": "b", "notation": "c6", "delay": 0},
-            { "WorB": "w", "notation": "d4", "delay": 0},
-            { "WorB": "b", "notation": "d5", "delay": 0},
-            { "WorB": "w", "notation": "exd5", "delay": 0},
-            { "WorB": "b", "notation": "cxd5", "delay": 0},
-            { "WorB": "w", "notation": "c4", "delay": 0},
-            { "WorB": "b", "notation": "Nf6", "delay": 0},
-            { "WorB": "w", "notation": "Nc3", "delay": 0},
+            { "WorB": "w", "notation": "e4", "delay": 1},
+            { "WorB": "b", "notation": "c6", "delay": 1},
+            { "WorB": "w", "notation": "d4", "delay": 1},
+            { "WorB": "b", "notation": "d5", "delay": 1},
+            { "WorB": "w", "notation": "exd5", "delay": 1},
+            { "WorB": "b", "notation": "cxd5", "delay": 1},
+            { "WorB": "w", "notation": "c4", "delay": 1},
+            { "WorB": "b", "notation": "Nf6", "delay": 1},
+            { "WorB": "w", "notation": "Nc3", "delay": 1},
             { "WorB": "b", "notation": "h6", "comment":"Opening Complete. White to play"}
       ],
       [
@@ -30,7 +30,9 @@
             { "WorB": "b", "notation": "Nxd5", "delay": 0,       "comment": "Naturally, Black takes back. The isolated pawn gives White more space and opportunities for attack. Black hopes to restrain the isolani and mount pressure against it as the game goes on. It doesn’t go on long." }
       ],
       [
-            { "WorB": "w", "notation": "Bc4", "delay": 0,       "par": 6,       "comment": "This develops with a threat, but Black has easy enough responses. Accept full credit for 7. Nf3. ." },
+            { "WorB": "w", "notation": "Bc4", "delay": 0,       "par": 6,       "comment": "This develops with a threat, but Black has easy enough responses. Accept full credit for 7. Nf3. .",
+                        "alts": [ {"notation":"Nf3", "par":6}]
+},
             { "WorB": "b", "notation": "Nxc3", "delay": 0,       "comment": "Black saves time, while giving White the hanging pawns (the c3/d4 complex). He also could have played either 7. ... e6 or 7. ... Nb6." }
       ],
       [
@@ -38,7 +40,9 @@
             { "WorB": "b", "notation": "Qc7", "delay": 0,       "comment": "Black’s skewering attack limits White’s reasonable responses." }
       ],
       [
-            { "WorB": "w", "notation": "Qd3", "delay": 0,       "par": 6,       "comment": "Accept full credit for 9. Qb3. It deals with the threats while building his own game. ." },
+            { "WorB": "w", "notation": "Qd3", "delay": 0,       "par": 6,       "comment": "Accept full credit for 9. Qb3. It deals with the threats while building his own game. .",
+            "alts": [ {"notation": "Qb3", "par": 6}]
+            },
             { "WorB": "b", "notation": "Nc6", "delay": 0,       "comment": "Speelman develops usefully. He still must muster his kingside." }
       ],
       [
@@ -66,7 +70,7 @@
             { "WorB": "b", "notation": "Rc8", "delay": 0,      "comment": "Black follows through on the anticipated scheme, but with the white knight on e5, he cannot yet play ... Na5-c4." }
       ],
       [
-            { "WorB": "w", "notation": " Bd2", "delay": 0,       "par": 6,      "comment": "White develops the bishop and strengthens his c3-weakness. He’s set to pursue more dynamic potentialities. ." },
+            { "WorB": "w", "notation": "Bd2", "delay": 0,       "par": 6,      "comment": "White develops the bishop and strengthens his c3-weakness. He’s set to pursue more dynamic potentialities. ." },
             { "WorB": "b", "notation": "b6", "delay": 0,       "comment": "An indifferent _move. Better was castling. Add 1 bonus point if you planned to answer 16. ... Bxa4 by either 17. Bxe6 or 17. Nxf7." }
       ],
       [
@@ -78,7 +82,7 @@
             { "WorB": "b", "notation": "Kf8", "delay": 0,       "comment": "The g-pawn had to be defended. Both ... g7-g6 and ... g7-g5 were thinkable, though either advance could be severely destabilizing to Black’s kingside." }
       ],
       [
-            { "WorB": "w", "notation": "d5", "delay": 0,      "par": 76,       "comment": "White pushes caution to the wind, risking the acceptance of weaknesses to open lines leading to the enemy king. The threats are mounting. ." },
+            { "WorB": "w", "notation": "d5", "delay": 0,      "par": 7,       "comment": "White pushes caution to the wind, risking the acceptance of weaknesses to open lines leading to the enemy king. The threats are mounting. ." },
             { "WorB": "b", "notation": "f6", "delay": 0,       "comment": "Black envisions forcing a queen trade, which generally is what one should consider doing when under attack. But here, the advance 19. ... f7-f6 is a bit impairing to Black’s pawn structure. More optimistic was 19. ... Nc4." }
       ],
       [
