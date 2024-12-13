@@ -8,8 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href=  "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,400&display=swap" rel="stylesheet">
-</head>    
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></head>    
 
 <body>
 <div class="window-container">
@@ -30,13 +29,15 @@
           <div id="currentScore" class="sidebar-score">0</div>
         </div>
         <div class="sidebar-button-container">
-          <button id="forwardBtn" class="sidebar-button" title="Play next move"><p  class="arrow">Show Move &#9658;</p></button>
+          <button id="hintBtn" class="sidebar-button" title="Get Hint"><p  class="arrow">Hint</p></button>
+        </div>
+        <div class="sidebar-button-container">
+          <button id="forwardBtn" class="sidebar-button" title="Play next move"><p  class="arrow">Next &#9658;</p></button>
         </div>
       </div>
     </div>
   </div>
 </div>
-<img id="transitionPiece" class="transitionPiece">
 </body>
 
 <script type="text/javascript" src="chess.js"></script>
@@ -46,11 +47,11 @@
 const _origin = window.location.origin;
 const _gameOptions = { "mode": ["solitaire", "test"],
                   "theme": ["classic", "modern" ],
-                  "url": ["/games/cf-jan-2022.json"]};
-let _gameMode = _gameOptions.mode[0];
-let _gameTheme = _gameOptions.theme[0];
-let _loadURL = _gameOptions.url[0];
-let _gameSet = {};
+                  "url": ["/games/chesslife-jan-2022.json"]};
+_gameMode = _gameOptions.mode[0];
+_gameTheme = _gameOptions.theme[0];
+_loadURL = _gameOptions.url[0];
+_gameSet = {};
 
 function readParameters() {
   const queryString = window.location.search;
@@ -64,16 +65,16 @@ function readParameters() {
     } else {
       return false;
     }
-  } else if( s = urlParams.get('theme') ) {
+  }
+  if( s = urlParams.get('theme') ) {
     if (_gameOptions.theme.includes(s)) {
       _gameTheme = s;
     } else {
       return false;
     }
-  } else {
-    _loadURL = urlParams.get('game');
-    if( _loadURL == null )
-      return false;
+  }
+  if( s = urlParams.get('game') ) {
+    _loadURL = s;
   };
   console.log(`Mode:${_gameMode} Style:${_gameTheme} URL:${_loadURL}`);
   return true;
@@ -91,7 +92,7 @@ async function main() {
 
   if( _gameMode == "test" )
     // Test mode alters UX and plays a set pf games
-    await readTestset( _loadURL );
+    await readGameSet( _loadURL );
   else
     _gameSet = {"urls": [_loadURL]};
  

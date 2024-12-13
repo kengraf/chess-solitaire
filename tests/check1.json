@@ -1,0 +1,27 @@
+{
+    "gameDate": "",
+   "playingWhite": "",
+    "playingBlack": "",
+    "summary": "Check with uncheck moves",
+    "startingPosition": "r6k/pp3Qp1/2p1rb1p/5R2/5Bn1/1PqN1R1P/P1P3P1/6K1 b KQkq - 0 0",
+    "endingPosition": "r6k/pp4p1/2p4p/8/8/1P5P/P1P2nP1/4rRK1",
+    "whoIsPlaying": "b",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "steps": [[
+      { "WorB":"b", "notation":"Qe1", "delay":1.0 },
+      { "WorB":"w", "notation":"Nxe1", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Rxe1", "delay":1.0 },
+      { "WorB":"w", "notation":"Rf1", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Bd4", "delay":1.0 },
+      { "WorB":"w", "notation":"Be3", "delay":1.0 },
+      { "WorB":"b", "notation":"Bxe3", "delay":1.0 },
+      { "WorB":"w", "notation":"Rf2", "delay":1.0 },
+      { "WorB":"b", "notation":"Bxf2", "delay":1.0 },
+      { "WorB":"w", "notation":"Qxf2", "delay":1.0 },
+      { "WorB":"b", "notation":"Nxf2", "delay":1.0 },
+      { "WorB":"w", "notation":"Rxf2", "delay":1.0, "fyi": "Illegal" }
+    ]]
+}

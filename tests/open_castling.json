@@ -10,7 +10,7 @@
     "enPassant": "-",
     "halfMoves": 0,
     "fullMoves": 0,
-    "moves": [
+    "steps": [[
       { "WorB":"w", "notation":"0-0", "delay":1.0 }, 
       { "WorB":"b", "notation":"0-0", "delay":1.0 }, 
       { "WorB":"w", "notation":"Kf2", "delay":1.0 }, 
@@ -28,5 +28,5 @@
       { "WorB":"b", "notation":"Ra8", "delay":1.0 }, 
       { "WorB":"w", "notation":"Ke1", "delay":1.0 },
       { "WorB":"b", "notation":"Ke8", "delay":1.0 }
-    ]
+    ]]
 }

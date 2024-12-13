@@ -11,7 +11,7 @@
     "enPassant": "-",
     "halfMoves": 0,
     "fullMoves": 0,
-    "moves": [
+    "steps": [[
         { "WorB":"w", "notation":"e4", "delay":0.5 },
         { "WorB":"b", "notation":"d5", "delay":0.5 },
         { "WorB":"w", "notation":"exd5", "delay":0.5 },
@@ -21,6 +21,6 @@
         { "WorB":"w", "notation":"cxd7+", "delay":0.5 },
         { "WorB":"b", "notation":"a6", "delay":0.5 },
         { "WorB":"w", "notation":"fdxc8Q#", "delay":0.5 }
-    ]
+    ]]
 }
 

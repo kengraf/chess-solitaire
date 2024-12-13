@@ -19,3 +19,4 @@ I will add more games as I go back through previous issues and as time allows.
 
 ### How the game works
 TBD.
+http://localhost:8000?mode=test&game=all_tests.json

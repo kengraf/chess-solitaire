@@ -1,0 +1,22 @@
+{
+    "gameDate": "",
+   "playingWhite": "",
+    "playingBlack": "",
+    "summary": "Mate-net",
+    "startingPosition": "2qrn1rk/pp3Rp1/2p4p/1bb5/5N2/1P1B4/P2Q3B/2R4K b KQkq - 0 0",
+    "endingPosition": "1wrnNrk/pp5R/2p4p/1bb5/8/1P1B4/P6B/2R4K",
+    "whoIsPlaying": "b",
+    "castling": "KQkq",
+    "enPassant": "-",
+    "halfMoves": 0,
+    "fullMoves": 0,
+    "steps": [[
+      { "WorB":"w", "notation":"Ng6+", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kh7", "delay":1.0 },
+      { "WorB":"w", "notation":"Nf8+", "delay":1.0 }, 
+      { "WorB":"b", "notation":"Kh8", "delay":1.0 },
+      { "WorB":"w", "notation":"Qxh6+", "delay":1.0 },
+      { "WorB":"b", "notation":"gxh6", "delay":1.0 },
+      { "WorB":"w", "notation":"Rh7#", "delay":1.0 }
+    ]]
+}

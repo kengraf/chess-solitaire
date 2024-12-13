@@ -10,7 +10,7 @@
     "enPassant": "-",
     "halfMoves": 0,
     "fullMoves": 0,
-    "moves": [
+    "steps": [[
       { "WorB":"b", "notation":"Ka2", "delay":0.5 }, 
       { "WorB":"b", "notation":"Kb3", "delay":0.5 }, 
       { "WorB":"b", "notation":"Kb4", "delay":0.5 }, 
@@ -43,5 +43,5 @@
       { "WorB":"b", "notation":"Kb1", "delay":0.5 }, 
       { "WorB":"b", "notation":"Ka1", "delay":0.5 } 
       
-    ]
+    ]]
 }
