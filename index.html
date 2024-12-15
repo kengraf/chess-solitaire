@@ -1,109 +1,141 @@
-
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-US"  lang="en-US" >
-
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="chess.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Splash Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('/images/splash.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            width: 90%;
+            height: 90%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            overflow-y: auto;
+        }
+        .title {
+            text-align: center;
+            padding: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .content {
+            display: flex;
+            flex: 1;
+        }
+        .links {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .links li {
+            margin: 10px 0;
+        }
+        .links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .links .subtitle {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .text-block {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .text-block ol {
+            padding-left: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const links = [
+                { href: "solitaire.html?game=/games/chesslife-jan-2022.json", 
+                    text: "Veselin Topalov v. Jonathan Speelman",
+                    subtitle: "A Speedy Victory" },
+                { href: "solitaire.html?game=/games/chesslife-feb-2022.json", 
+                    text: "Akiba Rubinstein v. Amos Burn",
+                    subtitle: "Queen&#x2018s Gambit Declined" },
+                { href: "#", 
+                    text: "(more games later)",
+                    subtitle: "" }
+            ];
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></head>    
+            const linksContainer = document.querySelector(".links ul");
 
+            links.forEach(link => {
+                const listItem = document.createElement("li");
+                const anchor = document.createElement("a");
+                anchor.href = link.href;
+                anchor.textContent = link.text;
+
+                const subtitle = document.createElement("div");
+                subtitle.className = "subtitle";
+                subtitle.textContent = link.subtitle;
+
+                listItem.appendChild(anchor);
+                listItem.appendChild(subtitle);
+                linksContainer.appendChild(listItem);
+            });
+        });
+    </script>
+</head>
 <body>
-<div class="window-container">
-  <div class="board-container">
-    <div id="board" class="grid-container">
-<!-- JS generated pieces: defineBoard() and setupGame(FEN) -->
-    </div>
- </div>
+    <div class="container">
+        <div class="title">Solitaire Chess</div>
+        <div class="content">
+            <div class="links">
+                <h3>Select games</h3>
+                <ul>
+                    <!-- Links will be dynamically inserted here -->
+                </ul>
+            </div>
+            <div class="text-block">
 
-<!-- TODO should sidebar be auto generated in script? -->
-  <div id="sidebar" class="sidebar">
-    <div id="sidebar-container" class="sidebar-container">
-      <div id="sidebar-top" class="sidebar-top">
-        <div id="sidebar-text" class="sidebar-text"></div>
-      </div>
-      <div id="sidebar-bottom" class="sidebar-bottom">
-        <div class="sidebar-score-container">
-          <div id="currentScore" class="sidebar-score">0</div>
+<h3>Motivation for this game.</h3>
+<ol>
+<li>Give me something fun to do while deskbound due to eye surgery post op.</li>
+<li>Document the process for creating a static website for my cloud class at Univ of New Hampshire.</li>
+<li>Take the rust off my web development skills.</li>
+<li>Do something creative to address my post-op boredom.</li>
+</ol>
+
+<h3>What is Solitaire Chess?</h3>
+An online chess game based on the long running Chess solitaire articles in <a href="https://new.uschess.org/category/chess-life-magazine"><font color="yellow">Chess Life</font></a> by <a href="https://en.wikipedia.org/wiki/Bruce_Pandolfini"><font color="yellow">Bruce Pandolfini</font></a>. Fundamentally this is a make the next move type of game.  
+Bruce is a well-regarded chess coach. After an inital opening you play one side with each move being scored, I like the commentary and rationale that Bruce provides on why the moves were actually made.
+I will add more games as I go back through previous issues and as time allows.
+
+<h3>A note to beginners</h3>
+If you are looking more interactive games or are just beginning your chess journey <a href="https://www.chess.com/home"><font color="yellow">Chess.com</font></a> and <a href="https://chessarena.com/"><font color="yellow">Chessarena.com</font></a> provide excellent resources.
+<h3>How to play the game</h3>
+You can drag or click to move pieces. Your move will then be compared to the actual move made by the GM.  Matching the actual move or playing a strong alternative will score points.  Your total score will be rated at the end of the game.
+                </p>
+            </div>
         </div>
-        <div class="sidebar-button-container">
-          <button id="hintBtn" class="sidebar-button" title="Get Hint"><p  class="arrow">Hint</p></button>
-        </div>
-        <div class="sidebar-button-container">
-          <button id="forwardBtn" class="sidebar-button" title="Play next move"><p  class="arrow">Next &#9658;</p></button>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
 </body>
-
-<script type="text/javascript" src="chess.js"></script>
-<script>
-
-// Globals
-const _origin = window.location.origin;
-const _gameOptions = { "mode": ["solitaire", "test"],
-                  "theme": ["classic", "modern" ],
-                  "url": ["/games/chesslife-jan-2022.json"]};
-_gameMode = _gameOptions.mode[0];
-_gameTheme = _gameOptions.theme[0];
-_loadURL = _gameOptions.url[0];
-_gameSet = {};
-
-function readParameters() {
-  const queryString = window.location.search;
-  if( queryString == "" ) return true;  // Using all defaults
-  const urlParams = new URLSearchParams(queryString);
-  
-  let s = "";
-  if( s = urlParams.get('mode') ) {
-    if (_gameOptions.mode.includes(s)) {
-      _gameMode = s;
-    } else {
-      return false;
-    }
-  }
-  if( s = urlParams.get('theme') ) {
-    if (_gameOptions.theme.includes(s)) {
-      _gameTheme = s;
-    } else {
-      return false;
-    }
-  }
-  if( s = urlParams.get('game') ) {
-    _loadURL = s;
-  };
-  console.log(`Mode:${_gameMode} Style:${_gameTheme} URL:${_loadURL}`);
-  return true;
-}
-
-
-// ---------- Code to run the game -------------
-async function main() {
-  if( !readParameters() )
-    // Reroute to error page
-    window.location.href = '/error.html';
-
-  // Generate the HTML board, sidebar, and pieces
-  defineBoard();
-
-  if( _gameMode == "test" )
-    // Test mode alters UX and plays a set pf games
-    await readGameSet( _loadURL );
-  else
-    _gameSet = {"urls": [_loadURL]};
- 
-  for (const gameURL of _gameSet.urls) { 
-      await fetchGame(gameURL);
-      _game.iStep = 0;  // Play the first step
-      await playStep();
-  }
-}
-// Kick off execution
-main();
-
-</script>
 </html>

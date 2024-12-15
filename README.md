@@ -1,9 +1,9 @@
 # chess-solitaire
 ### Motivation for this repo.
-1. Give me something fun to do while deskbound after surgery post op.
+1. Give me something fun to do while deskbound due to eye surgery post op.
 2. Document the process for creating a static website for my cloud class at UNH.
 3. Take the rust off my web development skills.
-4. Do something creative to address my boredom post-op.
+4. Do something creative to address my post-op boredom.
 
 ### What this repo does
 An online chess game based on the long running _Chess solitaire_ articles in _Chess Life by Bruce Pandolfini_. Fundamentally this is a make the next move type of game.  

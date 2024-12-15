@@ -9,7 +9,6 @@ const _boardRanks = '87654321';  // <div> position 0 is board rank 8
 let _currentScore = 0;
 let _positiveMove = false;
 let _goodMoves = [];
-let _showAvailSpaces = true;
 let _squareSize = 60;
 let _gameMode = "";
 let _gameTheme = "";
@@ -92,7 +91,6 @@ function nodeToSquareType(node) {
 
 
 // ----------------- browser interactions ---------------------
-let _dragZones = null;
 let _activePiece = null; // type of _move not node
 
 function dropEvent(e) {
@@ -408,7 +406,7 @@ function isChecked() {
     let candidates = document.querySelectorAll(`[data-group^="${piece.WorB}"]`);
     for (const node of candidates) {
         let sq = pickedValidPiece( node );
-        _MoveTos = [];
+        _moveTos = [];
         showPossibles(sq);
         if( _moveTos.includes(kingAlpha)) checkingPieces.push(node);
     }
@@ -421,13 +419,14 @@ function isChecked() {
 }
 
 function isMated() {
+    let piece = _activePiece;
     const checkingPieces = isChecked();
     if( checkingPieces.length == 0 ) return false;
 
     // fix eval all squares around king
     let king = (_game.WorB == "b") ? "wk" : "bk";
     let kingNode = document.querySelectorAll(`[data-group^="${king}"]`);
-    let sq = nodeToSquareType( node );
+    let sq = nodeToSquareType( kingNode );
     _moveTos = [];
     showPossibles(sq);
     let escapeSquares = _moveTos;
@@ -435,7 +434,7 @@ function isMated() {
     let candidates = document.querySelectorAll(`[data-group^="${piece.WorB}"]`);
     for( const escape of escapeSquares) {
         for (const node of candidates) {
-            _MoveTos = [];
+            _moveTos = [];
             sq = nodeToSquareType( node );
             showPossibles(sq);
             if( _moveTos.includes(escape) == false )
@@ -639,9 +638,6 @@ function parseMove(notation) {
     return (notation.length == 0);
 }
 
-let _floatImage = null;
-let _floatAnimation = true;
-
 function animateElement(element, keyframes, options) {
     return new Promise((resolve) => {
         const animation = element.animate(keyframes, options);
@@ -651,8 +647,9 @@ function animateElement(element, keyframes, options) {
 
 
 async function executeMove(move) {  // Update the UI
+    let floatAnimation = true;
     let imgSquare = document.getElementById(move.startSquare.alpha);
-    const _floatImage = imgSquare.querySelectorAll("[data-group]")[0];
+    const floatImage = imgSquare.querySelectorAll("[data-group]")[0];
     const boardDiv = document.getElementById("board");
     
     const x = move.startSquare.file * _squareSize;
@@ -661,7 +658,7 @@ async function executeMove(move) {  // Update the UI
     const yEnd = (((7 - move.endSquare.rank) * _squareSize));
 
      // Take the image out of the square and float it over the board
-    boardDiv.appendChild(_floatImage);
+    boardDiv.appendChild(floatImage);
 
     // Move to end square
     const keyframes = [
@@ -671,17 +668,16 @@ async function executeMove(move) {  // Update the UI
     const options = { duration: 1000, iterations: 1, fill: "forwards" };
 
     // Create and play animation
-    _floatAnimation = true;
-    animateElement(_floatImage, keyframes, options )
+    animateElement(floatImage, keyframes, options )
         .then(() => {
-            _floatAnimation = false;
+            floatAnimation = false;
         });
 
-    while( _floatAnimation )
+    while( floatAnimation )
         await sleep( 50 );
 
     // Just the moved piece on square
-    _floatImage.remove();
+    floatImage.remove();
     pieceDelete(move.endSquare.alpha);
     pieceAdd( move.WorB + move.pieceType, move.endSquare.alpha);
 
@@ -1199,7 +1195,7 @@ function showGameResult() {
 }
 
 function showScoreInSidebar() {
-    score = document.getElementById("currentScore");
+    let score = document.getElementById("currentScore");
     score.innerHTML = `Score: ${_currentScore}`;
 }
 

@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-US"  lang="en-US" >
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="chess.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></head>    
+
+<body>
+<div class="window-container">
+  <div class="board-container">
+    <div id="board" class="grid-container">
+<!-- JS generated pieces: defineBoard() and setupGame(FEN) -->
+    </div>
+ </div>
+
+<!-- TODO should sidebar be auto generated in script? -->
+  <div id="sidebar" class="sidebar">
+    <div id="sidebar-container" class="sidebar-container">
+      <div id="sidebar-top" class="sidebar-top">
+        <div id="sidebar-text" class="sidebar-text"></div>
+      </div>
+      <div id="sidebar-bottom" class="sidebar-bottom">
+        <div class="sidebar-score-container">
+          <div id="currentScore" class="sidebar-score">0</div>
+        </div>
+        <div class="sidebar-button-container">
+          <button id="hintBtn" class="sidebar-button" title="Get Hint"><p  class="arrow">Hint</p></button>
+        </div>
+        <div class="sidebar-button-container">
+          <button id="forwardBtn" class="sidebar-button" title="Play next move"><p  class="arrow">Next &#9658;</p></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript" src="chess.js"></script>
+<script>
+
+// Globals
+const _origin = window.location.origin;
+const _gameOptions = { "mode": ["solitaire", "test"],
+                  "theme": ["classic", "modern" ],
+                  "url": ["/games/chesslife-jan-2022.json"]};
+_gameMode = _gameOptions.mode[0];
+_gameTheme = _gameOptions.theme[0];
+_loadURL = _gameOptions.url[0];
+_gameSet = {};
+
+function readParameters() {
+  const queryString = window.location.search;
+  if( queryString == "" ) return true;  // Using all defaults
+  const urlParams = new URLSearchParams(queryString);
+  
+  let s = "";
+  if( s = urlParams.get('mode') ) {
+    if (_gameOptions.mode.includes(s)) {
+      _gameMode = s;
+    } else {
+      return false;
+    }
+  }
+  if( s = urlParams.get('theme') ) {
+    if (_gameOptions.theme.includes(s)) {
+      _gameTheme = s;
+    } else {
+      return false;
+    }
+  }
+  if( s = urlParams.get('game') ) {
+    _loadURL = s;
+  };
+  console.log(`Mode:${_gameMode} Style:${_gameTheme} URL:${_loadURL}`);
+  return true;
+}
+
+
+// ---------- Code to run the game -------------
+async function main() {
+  if( !readParameters() )
+    // Reroute to error page
+    window.location.href = '/error.html';
+
+  // Generate the HTML board, sidebar, and pieces
+  defineBoard();
+
+  if( _gameMode == "test" )
+    // Test mode alters UX and plays a set pf games
+    await readGameSet( _loadURL );
+  else
+    _gameSet = {"urls": [_loadURL]};
+ 
+  for (const gameURL of _gameSet.urls) { 
+      await fetchGame(gameURL);
+      _game.iStep = 0;  // Play the first step
+      await playStep();
+  }
+}
+// Kick off execution
+main();
+
+</script>
+</html>
