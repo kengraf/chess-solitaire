@@ -1,0 +1,112 @@
+{
+    "source": "Chess Life: Jan 2011",
+  "title": "The Old Ways",
+  "subtitle": "The romantic style, characterized by beautiful but often unsound sacrifices, was rampant in the mid 1800s, and partly the reason for its popularity was the great success of Germany’s Adolf Anderssen.",
+  "annotator": "Bruce Pandolfini",
+  "startingPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w kqKQ - 0 0",
+  "summary": "It was Adolf Anderssen (1818-79) who won the first true international tournament in London in 1851, and it was Anderssen who gave us those two wondrous creations, the Evergreen Game and the Immortal Game, contests fraught with the art of giving away pieces. Here, we’re just going to settle for an ordinary crush, exemplified by Anderssen’s victory at the London event over Marmaduke Wyvill (Black). The opening play is a little outof-date, but the finish is right up the alley of most players. The game began as a somewhat outmoded Sicilian Defensegressive moves into a sudden mating attack. The opening began as a Caro-Kann Defense.",
+"opening": "Sicilian Defense (B20)",
+  "white": "Adolf Anderssen",
+  "black": "Marmaduke Wyvill",
+  "site": "London International Tournament 1851",
+  "steps" : [
+          [
+          { "WorB": "w", "notation": "e4", "delay": 1},
+            { "WorB": "b", "notation": "c5", "delay": 1},
+            { "WorB": "w", "notation": "Bc4", "delay": 1},
+            { "WorB": "b", "notation": "Nc6", "delay": 1},
+            { "WorB": "w", "notation": "Nc3", "delay": 1},
+            { "WorB": "b", "notation": "e6", "delay": 1},
+            { "WorB": "w", "notation": "d3", "delay": 1},
+            { "WorB": "b", "notation": "Ne5", "delay": 1},
+            { "WorB": "w", "notation": "Bf4", "delay": 1},
+            { "WorB": "b", "notation": "Nxc4", "delay": 1},
+            { "WorB": "w", "notation": "dxc4", "delay": 1},
+            { "WorB": "b", "notation": "a6", "delay": 1,            
+              "comment":"Your starting position."}
+            ],
+      [
+          { "WorB": "w", "notation": "Qe2", "delay": 0,       "par": 5,
+              "comment": " Accept only 3 points part credit for 7. Bd6 which is premature. The queen goes to e2 rather than d2 or d3 in order to keep the d-file clear for the rook. Also, the queen may yet become active on the d1-h5 diagonal, and for this reason Anderssen is in no rush to place his knight on f3. Add 1 bonus point if you took these factors into account.",
+            "alts": [ {"notation": "Bd6", "par": 3} ]
+            },
+            { "WorB": "b", "notation": "Ne7", "delay": 0, "comment": "Black avoids 7. ... Nf6 since it invites the advance of the e-pawn. The task for Black is to develop his pieces without being kicked around by White’s pawns." }
+            ],
+      [
+          { "WorB": "w", "notation": "0-0-0", "delay": 0,       "par": 5,       "comment": "White is poised to exploit weaknesses on the d-file." },
+            { "WorB": "b", "notation": "Ng6", "delay": 0 }
+            ],
+      [
+          { "WorB": "w", "notation": "Bg3", "delay": 0,       "par": 4 },
+            { "WorB": "b", "notation": "Be7", "delay": 0 }
+            ],
+      [
+          { "WorB": "w", "notation": "f4", "delay": 0, "par": 5, "comment": "White has a natural space advantage on the kingside which is enhanced by advancing his pawns. In the pressent instance there also is a target at g6."   },
+            { "WorB": "b", "notation": "0-0", "delay": 0,       "comment": "Perhaps this is playing into White’s hands, but Black can’t get by without castling.*" }
+            ],
+      [
+          { "WorB": "w", "notation": "f5", "delay": 0,       "par": 5, "comment": "This dislodges the knight. Hereafter, Black tries to make a home for the knight on f8." },
+            { "WorB": "b", "notation": "Bg5+", "delay": 0,      "comment": "This is played mainly to clear the e-file." }
+            ],
+      [
+          { "WorB": "w", "notation": "Kb1", "delay": 0,      "par": 4,  "comment": "No credit for other moves." },
+            { "WorB": "b", "notation": "exf5", "delay": 0, "comment": "TBlack is still clearing the e-file. In any case, not 12. ... Nf4 15. Qf3 e5 16. Bf2, winning the knight after 17. g3. Accept 2 bonus points if you saw it." }
+            ],
+      [
+          { "WorB": "w", "notation": "exf5", "delay": 0,       "par": 5 },
+            { "WorB": "b", "notation": "Re8", "delay": 0  }
+            ],
+      [
+          { "WorB": "w", "notation": "Qg4", "delay": 0,       "par": 4,  "comment": "Anderssen aims to place the queen actively. Give yourself 1 bonus point if you planned to answer 14. ... Ne5? with 15. Bxe5 Rxe5 16. Nf3 winning a piece." },
+            { "WorB": "b", "notation": "Nf8", "delay": 0,       "comment": "The knight has found a safe resting home at f8 where it serves to guard the king. But the rest of Black’s position looks a mess. He’s way behind in bringing out his queenside forces and there are numerous weaknesses on the d-file" }
+            ],
+      [
+           { "WorB": "w", "notation": "Nf3", "delay": 0,       "par": 5,      "comment": "Anderssen’s judgment in previously delaying this move is vindicated. Now the knight comes out with tempo on the bishop." },
+            { "WorB": "b", "notation": "Bf6", "delay": 0 }
+            ],
+       [
+          { "WorB": "w", "notation": "Ne4", "delay": 0,       "par": 5,  "comment": "This is better than 16. Nd5 (3 points part credit), which blocks the action of the rook on the file. From e4 the knight attacks both the bishop and the c5-pawn" },
+            { "WorB": "b", "notation": "b5", "delay": 0,      "comment": "This looks pretty desperate. Possibly better was 16. ... Kh8, unpinning the g pawn" }
+            ],
+      [
+          { "WorB": "w", "notation": "Bc7", "delay": 0, "par": 6,      "comment": "It’s time to force the play." },
+            { "WorB": "b", "notation": "Qe7", "delay": 0,       "comment": "Black avoids 17. ... Qxc7 18. Nxf6+ Kh8 19. Nxe8; not merely winning the rook, but threatening mate and the queen (2 bonus points)" }
+            ],
+      [
+          { "WorB": "w", "notation": "Nxf6+", "delay": 0,      "par": 5 },
+            { "WorB": "b", "notation": "Qxf6", "delay": 0  }
+            ],
+      [
+          { "WorB": "w", "notation": "Rd6", "delay": 0,      "par": 6,       "comment": "White invades with powerful tempo." },
+            { "WorB": "b", "notation": "Ne6", "delay": 0,       "comment": "Giving a piece is certainly better than giving the queen. Note that on 19. ... Qe7 there follows 20. f6 (1 bonus point) but it’s still pretty hopeless. The best chance of resisting was 19. ... h5, distracting the queen from g4." }
+            ],
+      [
+          { "WorB": "w", "notation": "fxe6", "delay": 0,      "par": 4,       "comment": "A piece is a piece." },
+            { "WorB": "b", "notation": "dxe6", "delay": 0,       "comment": "The position is resignable, but Wyvill wants to be shown (well, at one time he did).*" }
+            ],
+      [
+     { "WorB": "w", "notation": "Rhd1", "delay": 0,       "par": 5,       "comment": "Anderssen is happy to demonstrate. First he consolidates his control of the d file." },
+    { "WorB": "b", "notation": "Bb7", "delay": 0 }
+    ],
+      [
+      { "WorB": "w", "notation": "Rd7", "delay": 0,       "par": 5,       "comment": "White seizes the seventh rank." },
+      { "WorB": "b", "notation": "Bc6", "delay": 0 }
+      ],
+  [
+      { "WorB": "w", "notation": "Be5", "delay": 0,       "par": 5,       "comment": "White figures on a trade of queens after 23. ... Qg6, and an easy transition to a won endgame." },
+      { "WorB": "b", "notation": "Bxf3", "delay": 0, "comment": "Black knocks out the bishop’s protector and gives White a chance to go wrong.*" }
+      ],
+  [
+  { "WorB": "w", "notation": "Qg3", "delay": 0,       "par": 6,       "comment": "Deduct 2 points for 24. Qxf3 (or 24. gxf3) 24. ... Qxe5. Also if you chose 24. Bxf6 Bxg4. The text puts an end to the tricks." },
+  { "WorB": "b", "notation": "Qg6", "delay": 0 }
+  ],
+  [
+{ "WorB": "w", "notation": "Qxf3", "delay": 0,       "par": 5 },
+{ "WorB": "b", "notation": "bxc4", "delay": 0, "comment": "A final oversight."  }
+],
+  [
+{ "WorB": "w", "notation": "Qxa8", "delay": 0,       "par": 6,       "comment": "Black resigned.  It’s mate after 26. ... Rxa8 27. Rd8+Rxd8 28. Rxd8. Tag on 1 bonus point if you saw it when deciding on 25. Qxf3 (rather than 25. gxf3 or 25. Qxg6 and 26. gxf3)." }
+]
+      
+      ]
+}

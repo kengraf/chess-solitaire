@@ -1,0 +1,112 @@
+{
+    "source": "Chess Life: Feb 2011",
+    "title": "The Alekhine Way",
+  "subtitle": "For the shortest month of the year, we present an Alekhine miniature which dates from three years before he was officially named a grandmaster.",
+  "annotator": "Bruce Pandolfini",
+  "startingPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w kqKQ - 0 0",
+  "summary": "It was said of Alexander Alekhine (1892-1946), the fourth world chess champion and one of the greatest players of all time, that to beat him you had beat him three times: once in the opening, once in the middlegame, and once in the endgame. But the truth is, most of the time you couldn’t beat him at all, and many of his victories were wrapped up right in the opening. Such was essentially the case with the following game played against Oscar Chajes (Black) in 1911. Alekhine hadn’t yet become Alekhine, but he sure put Chajes away quickly",
+"opening": "Sicilian Defense (B40)",
+"white": "Alexander Alekhine",
+"black": "Oscar Chajes",
+"site": "Karlsbad, 1911",
+  "steps" : [
+      [
+            { "WorB": "w", "notation": "c4", "delay": 1},
+            { "WorB": "b", "notation": "e6", "delay": 1},
+            { "WorB": "w", "notation": "e4", "delay": 1},
+            { "WorB": "b", "notation": "c5", "delay": 1},
+            { "WorB": "w", "notation": "Nc3", "delay": 1},
+            { "WorB": "b", "notation": "Nc6", "delay": 1},
+            { "WorB": "w", "notation": "Nf3", "delay": 1},
+            { "WorB": "b", "notation": "g6", "delay": 1,           
+              "comment":"Your starting position."}
+            ],
+          [
+          { "WorB": "w", "notation": "d4", "delay": 0,       "par": 5,
+            "comment": "Black’s last move is too slow to control d4 and further weakens his dark squares."
+            },
+          { "WorB": "b", "notation": "cxd4" }
+            ],
+      [
+          { "WorB": "w", "notation": "Nxd4", "delay": 0,       "par": 4  },
+          { "WorB": "b", "notation": "Bg7", "delay": 0 }
+            ],
+       [
+          { "WorB": "w", "notation": "Ndb5", "delay": 0, "par": 6, "comment": "White heads for d6. Accept only 3 points part credit for the defensive 7. Be3."
+          , "alts": [ {"notation":"Bc3", "par":3}]
+},
+          { "WorB": "b", "notation": "Be5", "delay": 0,       "comment": "Black plans to chop off the knight when it comes to d6." }
+            ],
+      [
+          { "WorB": "w", "notation": "f4", "delay": 0,       "par": 5, "comment": "This is stronger than 8. Nd6+ (3 points part credit)." },
+          { "WorB": "b", "notation": "a6", "delay": 0,      "comment": "On 8. ... Bb8 Alekhine intended 9. c5, clamping down on d6. The text proposes a bishop for knight trade." }
+            ],
+      [
+          { "WorB": "w", "notation": "fxe5", "delay": 0,      "par": 5,  "comment": "Alekhine happily accepts the trade, as it opens the f-file and leaves Black chronically weak on dark squares. Moreover the backward d7-pawn provides a likely target for the future. Take 1 bonus point if you sized up White’s assets correctly" },
+          { "WorB": "b", "notation": "axb5" }
+            ],
+      [
+          { "WorB": "w", "notation": "Bf4", "delay": 0,       "par": 5,  "comment": "Accept 1 bonus point if you properly rejected 10. cxb5 Nxe5 or 10. Nxb5 Qh4+.The text guards e5, eliminates the h4-check as a danger, and threatens to take on b5." },
+          { "WorB": "b", "notation": "bxc4", "delay": 0,       "comment": "If 10. ... b4, then 11. Nb5 (1 bonus point); so Black takes at c4, promoting White’s development.*" }
+            ],
+      [
+          { "WorB": "w", "notation": "Bxc4", "delay": 0,       "par": 4,   "comment":    "Again, White threatens 12. Nb5 (1 bonus point)" },
+           { "WorB": "b", "notation": "Ra5",  "comment": "This was clever and perhaps unexpected. Chajes wants to pressure the e5-pawn, among other things."}
+            ],
+      [
+           { "WorB": "w", "notation": "0-0", "delay": 0,       "par": 6,  "comment": "Deduct 2 points for 12. Nb5? Rxb5 13. Bxb5 Qa5+, picking up two pieces for the rook" },
+          { "WorB": "b", "notation": "b5", "delay": 0,      "comment": "With 12. ... Nxe5 13. Bxe5 (or 13. Qd4 f6 14. Nb5) 13. ... Rxe5 Black eliminates the e5-pawn, but his dark-square problems remain. White continues 14. Qd6 Ra5 15. Nb5 (2 bonus points, if you saw up to here when castling) and in view of the threat 16. Nc7+, Black has to give the Exchange, 15. ... Rxb5. Instead, 15. ... Ne7, runs into 16. Nc7+ Kf8 17. Nxe6+" }
+            ],
+       [
+          { "WorB": "w", "notation": "b4", "delay": 0, "par": 7,      "comment": "Alekhine at work! He doesn’t want to retreat 13. Bb3 b4, and he doesn’t want to take 13. Nxb5 just yet because of 13. ... Rxb5 14. Bxb5 Qb6+.n" },
+          { "WorB": "b", "notation": "Qb6+", "delay": 0 }
+            ],
+      [
+          { "WorB": "w", "notation": "Kh1","par": 0 },
+          { "WorB": "b", "notation": "Nxb4", "comment": "If the rook moves, then 15. Nxb5.*" }
+            ],
+      [
+          { "WorB": "w", "notation": "Bxb5", "delay": 0,      "par": 5, "comment": "White invades with powerful tempo." },
+          { "WorB": "b", "notation": "Rxb5" }
+            ],
+      [
+          { "WorB": "w", "notation": "Nxb5", "par": 5 },
+          { "WorB": "b", "notation": "Qxb5" }
+            ],
+      [
+          { "WorB": "w", "notation": "Rb1", "delay": 0,  "par": 6,       "comment": "This move is the point of the preceding play (2 bonus points). White pins (and ultimately wins) the knight. The black queen cannot unpin herself: 17. ... Qc5 18. Rc1; or 17. ... Qc4 18. Qa4; or 17. ... Qa5 18. Bd2. Please accept 1 bonus point for each of the unpinning refutations." },
+          { "WorB": "b", "notation": "Ba6", "delay": 0,       "comment": "Black threatens to take at f1, and also looks to unpin with 18. ... Qc5.*" }
+            ],
+      [
+          { "WorB": "w", "notation": "Qd6", "delay": 0,       "par": 5,       "comment": "White’s move further attacks the knight, while stopping ... Qb5-c5. The placement also readies to answer 18. ... Ne7 with 19. Qxb4 Qxb4 20. Rxb4 Bxf1 21. Rb8+ (2 bonus points).." },
+          { "WorB": "b", "notation": "f6", "comment": "Black makes a pocket for the king. Hopeless is 18. ... Qxf1+ 19. Rxf1 Bxf1 20. Qb8+ Ke7 21. Qxb4+. Another dreadful line is 18. ... Qc6 19. Rxb4 Qxd6 20. exd6 Bxf1 21. Rb8 mate.*" }
+    ],
+      [
+          { "WorB": "w", "notation": "Rfc1", "delay": 0,       "par": 5,       "comment": "This simple move removes the rook from attack. Deduct 5 points for 19. Rxb4?? Qxf1 mate. Accept only 4 points part credit for 19. exf6: the threat 20. f7+ Kxf7 21. Be5+ Ke8 22. Rf8 mate." 
+          , "alts": [ {"notation":"exf6", "par":4}]},
+      { "WorB": "b", "notation": "Qd3", "comment": "The queen has to run some place." }
+      ],
+      [
+      { "WorB": "w", "notation": "Rxb4",  "par": 4,       "comment": "Alekhine has recovered his piece. He is ahead by the Exchange, and he still has the attack."
+      },
+      { "WorB": "b", "notation": "g5", "comment": "Accept 1 bonus point if you evaluated that 20. ... Qxd6 21. exd6 prolongs the game, without giving any real hope of saving it" } ],
+      [
+          { "WorB": "w", "notation": "Rd4", "delay": 0,       "par": 5,       "comment": "White utilizes the position of the black queen to attack d7, which is an energetic way to proceed. Accept only 2 points part credit for retreating the bishop or trading at d3 first." },
+      { "WorB": "b", "notation": "Qb5", "comment": "This is a futile attempt to guard d7, sunce White has the means to drive the queen away.*" }
+      ],
+      [
+          { "WorB": "w", "notation": "a4", "delay": 0,       "par": 5 },
+      { "WorB": "b", "notation": "Qb7", "delay": 0 }
+      ],
+  [
+{ "WorB": "w", "notation": "Rc7", "delay": 0,       "par": 5 },
+{ "WorB": "b", "notation": "Qb1+", "delay": 0, "comment": "Black gives a spite check before resigning."  }
+],
+  [
+{ "WorB": "w", "notation": "Rd1", "delay": 0,       "par": 5,       "comment": "This is more forcing than 24. Bc1, which is worth merely 4 points part credit.  Black resigned." 
+          , "alts": [ {"notation":"Bc1", "par":4}]
+}
+]
+
+  ]
+}

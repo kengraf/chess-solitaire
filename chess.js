@@ -422,6 +422,7 @@ function isMated() {
     let piece = _activePiece;
     const checkingPieces = isChecked();
     if( checkingPieces.length == 0 ) return false;
+return false; // DEBUG and FIX
 
     // fix eval all squares around king
     let king = (_game.WorB == "b") ? "wk" : "bk";
@@ -995,9 +996,9 @@ async function playStep() {
         showGameResult();
         getCurrentFEN();
         if( _game.currentPosition == _game.endingPosition )
-            console.log("%cSuccess -" +`${_game.summary}`, "color: green;" );
+            console.log("%cSuccess -" +`${_game.currentPosition}`, "color: green;" );
         else
-            console.log("%cFailed -" + `${_game.summary} - ${_game.currentPosition}`, "color: red;" );
+            console.log("%cFailed -" + `${_game.currentPosition}`, "color: red;" );
         console.log(`${_game.endingPosition}`);
         return;
     }
