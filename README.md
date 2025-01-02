@@ -1,4 +1,4 @@
-# chess-solitaire
+# chess-solitaire 
 ### Motivation for this repo.
 1. Give me something fun to do while deskbound due to eye surgery post op.
 2. Document the process for creating a static website for my cloud class at UNH.
