@@ -36,8 +36,8 @@
             { "WorB": "b", "notation": "Nxc3", "delay": 0,       "comment": "Black saves time, while giving White the hanging pawns (the c3/d4 complex). He also could have played either 7. ... e6 or 7. ... Nb6." }
       ],
       [
-            { "WorB": "w", "notation": "bxc3", "delay": 0,       "par": 5,       "comment": "" },
-            { "WorB": "b", "notation": "Qc7", "delay": 0,       "comment": "Black’s skewering attack limits White’s reasonable responses." }
+            { "WorB": "w", "notation": "bxc3", "delay": 0,       "par": 5,       "comment": "Black’s skewering attack limits White’s reasonable responses." },
+            { "WorB": "b", "notation": "Qc7", "delay": 0,       "comment": "" }
       ],
       [
             { "WorB": "w", "notation": "Qd3", "delay": 0,       "par": 6,       "comment": "Accept full credit for 9. Qb3. It deals with the threats while building his own game. .",
