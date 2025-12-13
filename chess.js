@@ -588,7 +588,7 @@ function parseMove(notation) {
         notation = notation.slice(0, -1);
         lastC = notation.charAt(notation.length - 1);
     }
-    if( "RNBG".includes(lastC) ) {
+    if( "RNBQ".includes(lastC) ) {
         // Promotion
         _move.promotionPiece = lastC;
         notation = notation.slice(0, -1);
